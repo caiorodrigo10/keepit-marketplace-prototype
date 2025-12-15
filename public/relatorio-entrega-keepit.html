@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Entrega - Keepit Brasil MVP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --keepit-green: #34BF58;
+            --keepit-green-light: #67FB94;
+            --keepit-green-dark: #2A9D47;
+            --gray-dark: #1E1E1E;
+            --gray-medium: #707070;
+            --gray-light: #F1F1F1;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            background-color: var(--gray-light);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--keepit-green) 0%, var(--keepit-green-dark) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .header .date {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section */
+        .section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--keepit-green);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--keepit-green);
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            margin: 30px 0 15px 0;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--gray-light);
+            border-left: 4px solid var(--keepit-green);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box.highlight {
+            background: linear-gradient(135deg, rgba(52, 191, 88, 0.1) 0%, rgba(103, 251, 148, 0.1) 100%);
+            border-left-color: var(--keepit-green-light);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--keepit-green) 0%, var(--keepit-green-dark) 100%);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .tech-card {
+            background: var(--gray-light);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #E0E0E0;
+        }
+
+        .tech-card h4 {
+            color: var(--keepit-green);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tech-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+        }
+
+        .tech-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Screenshots Gallery */
+        .gallery-section {
+            margin: 35px 0;
+        }
+
+        .gallery-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: var(--gray-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--keepit-green);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E0E0E0;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .gallery-item .caption {
+            padding: 12px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            background: var(--gray-light);
+        }
+
+        .gallery-item .caption small {
+            display: block;
+            color: var(--gray-medium);
+            font-weight: 400;
+            margin-top: 5px;
+            font-size: 0.8rem;
+        }
+
+        .gallery-item .click-hint {
+            font-size: 0.7rem;
+            color: var(--keepit-green);
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: auto;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 95%;
+            max-height: 95%;
+            margin: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            transition: color 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: var(--keepit-green);
+        }
+
+        .lightbox-caption {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+            padding: 10px 25px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .gallery-item img {
+                height: 140px;
+            }
+
+            .gallery-item .caption {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--keepit-green);
+            font-weight: 700;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 30px 0;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--keepit-green);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--keepit-green);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--keepit-green);
+        }
+
+        .timeline-item h4 {
+            color: var(--keepit-green-dark);
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-dark);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item .caption {
+                padding: 15px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .header {
+                background: var(--keepit-green) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+        /* Password Protection Overlay */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--keepit-green) 0%, var(--keepit-green-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+        }
+
+        .password-overlay.hidden {
+            display: none;
+        }
+
+        .password-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-box h2 {
+            color: var(--keepit-green);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .password-box p {
+            color: var(--gray-medium);
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+
+        .password-box input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+            transition: border-color 0.2s;
+        }
+
+        .password-box input:focus {
+            outline: none;
+            border-color: var(--keepit-green);
+        }
+
+        .password-box input.error {
+            border-color: #e74c3c;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .password-box button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--keepit-green) 0%, var(--keepit-green-dark) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .password-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(52, 191, 88, 0.4);
+        }
+
+        .password-box .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .password-box .error-message.show {
+            display: block;
+        }
+
+        .main-content {
+            display: none;
+        }
+
+        .main-content.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Password Protection Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-box">
+            <h2>Acesso Restrito</h2>
+            <p>Digite a senha para acessar o relatório</p>
+            <input type="password" id="passwordInput" placeholder="Senha" onkeypress="handleKeyPress(event)">
+            <button onclick="checkPassword()">Acessar</button>
+            <p id="errorMessage" class="error-message">Senha incorreta. Tente novamente.</p>
+        </div>
+    </div>
+
+    <!-- Main Content (hidden by default) -->
+    <div id="mainContent" class="main-content">
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Relatório de Entrega</h1>
+        <p class="subtitle">Keepit Brasil MVP - Protótipo de Interface</p>
+        <p class="date">Dezembro 2025 | Contrato KB-DGB-001/2025</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Seção: Contexto do Projeto -->
+        <section class="section">
+            <h2 class="section-title">1. Contexto do Projeto</h2>
+
+            <p>O <strong>Keepit Brasil</strong> é um marketplace PWA (Progressive Web App) multivendor que conecta usuários, estabelecimentos (hosters) e lojas (colabes) através de um sistema inteligente de lockers para retirada de produtos.</p>
+
+            <div class="info-box highlight">
+                <strong>Mudança de Escopo:</strong> O projeto inicialmente foi planejado para desenvolver tanto backend quanto frontend. Porém, na segunda semana, foi decidido estrategicamente focar 100% na parte de interface do usuário (UI/UX), permitindo um protótipo visual mais completo e refinado para validação do produto.
+            </div>
+
+            <h3 class="section-subtitle">Diferenciais do Produto</h3>
+            <ul class="feature-list">
+                <li><strong>Compra antecipada sem fila:</strong> Usuários compram online e retiram em lockers inteligentes</li>
+                <li><strong>Retirada em 10 minutos:</strong> Tempo máximo de espera para pickup após a compra</li>
+                <li><strong>Marketplace multivendor:</strong> Múltiplos estabelecimentos e lojas em uma única plataforma</li>
+                <li><strong>Sistema de lockers inteligentes:</strong> Integração com hardware de armários com QR codes</li>
+                <li><strong>Gestão por roles:</strong> Sistema RBAC para diferentes tipos de usuários (Admin, Hoster, Colabe, Cliente)</li>
+            </ul>
+
+            <h3 class="section-subtitle">Dados do Contrato</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>📋 Informações Gerais</h4>
+                    <ul>
+                        <li><strong>Cliente:</strong> Keepit Brasil LTDA</li>
+                        <li><strong>Contrato:</strong> KB-DGB-001/2025</li>
+                        <li><strong>Desenvolvedor:</strong> Digibrands Global LLC</li>
+                        <li><strong>Escopo:</strong> MVP (Minimum Viable Product)</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>📅 Metodologia</h4>
+                    <ul>
+                        <li>Sprints semanais</li>
+                        <li>Entregas incrementais</li>
+                        <li>Validação contínua</li>
+                        <li>Documentação completa</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Números do Projeto -->
+        <section class="section">
+            <h2 class="section-title">2. Números do Projeto</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">33.001</div>
+                    <div class="label">Linhas de Código TypeScript</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">21</div>
+                    <div class="label">Módulos Desenvolvidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">72</div>
+                    <div class="label">Arquivos SCSS</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">50+</div>
+                    <div class="label">Componentes Reutilizáveis</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">150+</div>
+                    <div class="label">Tabelas no Banco de Dados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">11</div>
+                    <div class="label">Documentos Técnicos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Stack Tecnológica -->
+        <section class="section">
+            <h2 class="section-title">3. Stack Tecnológica</h2>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🖥️ Frontend</h4>
+                    <ul>
+                        <li><strong>Next.js 14</strong> - App Router</li>
+                        <li><strong>React 18</strong> - Biblioteca UI</li>
+                        <li><strong>TypeScript</strong> - Type Safety</li>
+                        <li><strong>Tailwind CSS</strong> - Estilização</li>
+                        <li><strong>SCSS</strong> - Estilos customizados</li>
+                        <li><strong>Swiper.js</strong> - Carrosséis</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>⚙️ Backend</h4>
+                    <ul>
+                        <li><strong>Medusa.js 2.0</strong> - E-commerce Headless</li>
+                        <li><strong>Node.js</strong> - Runtime</li>
+                        <li><strong>PostgreSQL</strong> - Banco de Dados</li>
+                        <li><strong>Supabase</strong> - Database Cloud</li>
+                        <li><strong>REST API</strong> - Comunicação</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>🎨 Design System</h4>
+                    <ul>
+                        <li><strong>Montserrat</strong> - Tipografia</li>
+                        <li><strong>#34BF58</strong> - Cor Primária</li>
+                        <li><strong>shadcn/ui</strong> - Componentes</li>
+                        <li><strong>Mobile-first</strong> - Responsividade</li>
+                        <li><strong>PWA Ready</strong> - Progressive Web App</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>🗺️ Integrações</h4>
+                    <ul>
+                        <li><strong>Google Maps API</strong> - Localização</li>
+                        <li><strong>Geocoding</strong> - Endereços</li>
+                        <li><strong>Places API</strong> - Autocomplete</li>
+                        <li><strong>Stripe</strong> - Pagamentos (preparado)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Páginas do Frontend -->
+        <section class="section">
+            <h2 class="section-title">4. Interface do Usuário (Frontend)</h2>
+
+            <p>Foram desenvolvidas todas as principais páginas do storefront com design responsivo e experiência de usuário otimizada.</p>
+
+            <!-- Homepage -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">🏠 Página Inicial (Homepage)</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/01-homepage-topo.png" alt="Homepage - Topo">
+                        <div class="caption">
+                            Hero Section
+                            <small>Banner principal com CTA e navegação</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-grid" style="margin-top: 25px;">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/01-homepage-fullpage.png" alt="Homepage - Completa">
+                        <div class="caption">
+                            Página Completa (Fullpage)
+                            <small>Categorias, produtos populares, benefícios, footer</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catálogo -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">📦 Catálogo de Produtos (/inicio)</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/02-inicio-topo.png" alt="Início - Topo">
+                        <div class="caption">
+                            Header com Localização
+                            <small>Seletor de região integrado com Google Maps</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-grid" style="margin-top: 25px;">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/02-inicio-fullpage.png" alt="Início - Completo">
+                        <div class="caption">
+                            Grid de Produtos (Fullpage)
+                            <small>Flash sales, produtos populares, filtros</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produto -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">🛍️ Página de Produto</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/03-produto-exemplo-topo.png" alt="Produto - Topo">
+                        <div class="caption">
+                            Galeria e Detalhes
+                            <small>Swiper.js com thumbnails sincronizadas</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-grid" style="margin-top: 25px;">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/03-produto-exemplo-fullpage.png" alt="Produto - Completo">
+                        <div class="caption">
+                            Página Completa (Fullpage)
+                            <small>Tabs, reviews, produtos relacionados</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seja Parceiro -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">🤝 Seja Parceiro (Cadastro de Hosters)</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/04-seja-parceiro-topo.png" alt="Seja Parceiro - Topo">
+                        <div class="caption">
+                            Hero e Benefícios
+                            <small>Apresentação da proposta de parceria</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/04-seja-parceiro-fullpage.png" alt="Seja Parceiro - Formulário">
+                        <div class="caption">
+                            Formulário de Cadastro
+                            <small>3 etapas: Estabelecimento, Responsável, Revisão</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/05-seja-parceiro-obrigado.png" alt="Seja Parceiro - Obrigado">
+                        <div class="caption">
+                            Página de Agradecimento
+                            <small>Confirmação de envio do cadastro</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lockers -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">📍 Visualização de Lockers</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/07-lockers-mapa.png" alt="Lockers - Mapa">
+                        <div class="caption">
+                            Visualização em Mapa
+                            <small>Google Maps com markers customizados</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/07-lockers-lista.png" alt="Lockers - Lista">
+                        <div class="caption">
+                            Visualização em Lista
+                            <small>Cards com detalhes e disponibilidade</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Fluxo de Checkout -->
+        <section class="section">
+            <h2 class="section-title">5. Fluxo de Checkout</h2>
+
+            <p>O checkout foi desenvolvido em 3 etapas + confirmação, seguindo as melhores práticas de UX para conversão.</p>
+
+            <!-- Etapa 1 -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">Etapa 1: Dados Pessoais</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-etapa1-dados-pessoais.png" alt="Checkout - Dados Pessoais">
+                        <div class="caption">
+                            Formulário Inicial
+                            <small>Nome, email, telefone, CPF</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-etapa1-preenchida.png" alt="Checkout - Preenchido">
+                        <div class="caption">
+                            Formulário Preenchido
+                            <small>Validação de CPF em tempo real</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Etapa 2 -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">Etapa 2: Seleção de Locker</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-etapa2-selecao-locker.png" alt="Checkout - Seleção Locker">
+                        <div class="caption">
+                            Mapa de Lockers
+                            <small>Visualização interativa com Google Maps</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-etapa2-locker-selecionado.png" alt="Checkout - Locker Selecionado">
+                        <div class="caption">
+                            Locker Selecionado
+                            <small>Detalhes do ponto de retirada</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Etapa 3 -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">Etapa 3: Pagamento</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-etapa3-pagamento.png" alt="Checkout - Pagamento">
+                        <div class="caption">
+                            Opções de Pagamento
+                            <small>Cartão de crédito ou PIX</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-grid" style="margin-top: 25px;">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-etapa3-cartao-preenchido.png" alt="Checkout - Cartão">
+                        <div class="caption">
+                            Pagamento com Cartão
+                            <small>Formulário com validação</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-etapa3-pix.png" alt="Checkout - PIX">
+                        <div class="caption">
+                            Pagamento com PIX
+                            <small>QR Code para pagamento instantâneo</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirmação -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">Confirmação do Pedido</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-frontend/checkout-confirmacao-pedido.png" alt="Checkout - Confirmação">
+                        <div class="caption">
+                            Pedido Confirmado
+                            <small>QR Code para retirada no locker</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Medusa Admin -->
+        <section class="section">
+            <h2 class="section-title">6. Painel Administrativo (Medusa Admin)</h2>
+
+            <p>O backend utiliza Medusa.js 2.0 com um dashboard administrativo completo para gestão do marketplace.</p>
+
+            <div class="info-box">
+                <strong>Credenciais de Acesso:</strong><br>
+                URL: <code>http://localhost:9000/app</code><br>
+                Email: <code>admin@keepit.com</code><br>
+                Senha: <code>KeepitAdmin2025!</code>
+            </div>
+
+            <div class="gallery-section">
+                <h3 class="gallery-title">🔐 Login e Dashboard</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-01-login-page.png" alt="Medusa - Login">
+                        <div class="caption">
+                            Página de Login
+                            <small>Autenticação segura do admin</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-02-orders.png" alt="Medusa - Orders">
+                        <div class="caption">
+                            Gestão de Pedidos
+                            <small>Listagem e status de orders</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3 class="gallery-title">📦 Produtos e Inventário</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-03-products.png" alt="Medusa - Products">
+                        <div class="caption">
+                            Lista de Produtos
+                            <small>4 produtos cadastrados de exemplo</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-04-product-detail.png" alt="Medusa - Product Detail">
+                        <div class="caption">
+                            Detalhes do Produto
+                            <small>Variantes, opções, mídia, preços</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-05-inventory.png" alt="Medusa - Inventory">
+                        <div class="caption">
+                            Gestão de Inventário
+                            <small>20 itens com controle de estoque</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3 class="gallery-title">👥 Clientes e Marketing</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-06-customers.png" alt="Medusa - Customers">
+                        <div class="caption">
+                            Gestão de Clientes
+                            <small>CRM integrado ao marketplace</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-07-promotions.png" alt="Medusa - Promotions">
+                        <div class="caption">
+                            Promoções
+                            <small>Cupons e descontos</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-08-price-lists.png" alt="Medusa - Price Lists">
+                        <div class="caption">
+                            Listas de Preços
+                            <small>Precificação por região/cliente</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3 class="gallery-title">⚙️ Configurações</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-09-settings-store.png" alt="Medusa - Settings">
+                        <div class="caption">
+                            Configurações da Loja
+                            <small>Nome, moedas, canais de venda</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="screenshots-medusa/medusa-10-settings-regions.png" alt="Medusa - Regions">
+                        <div class="caption">
+                            Regiões
+                            <small>Europa e Brasil configurados</small>
+                            <span class="click-hint">Clique para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Funcionalidades Implementadas -->
+        <section class="section">
+            <h2 class="section-title">7. Funcionalidades Implementadas</h2>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🛒 E-commerce</h4>
+                    <ul>
+                        <li>Catálogo de produtos responsivo</li>
+                        <li>Galeria de imagens com Swiper</li>
+                        <li>Sistema de carrinho (Context API)</li>
+                        <li>Mini cart no header</li>
+                        <li>Página de detalhes completa</li>
+                        <li>Sistema de favoritos</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>📍 Localização</h4>
+                    <ul>
+                        <li>Integração Google Maps API</li>
+                        <li>Autocomplete de endereços</li>
+                        <li>Geocoding/Reverse geocoding</li>
+                        <li>Markers customizados</li>
+                        <li>InfoWindow com detalhes</li>
+                        <li>Modal de seleção de região</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>📝 Formulários</h4>
+                    <ul>
+                        <li>Cadastro de parceiros (3 etapas)</li>
+                        <li>Checkout multi-step</li>
+                        <li>Validação em tempo real</li>
+                        <li>Máscaras (CPF, CNPJ, telefone)</li>
+                        <li>Accordion de seções</li>
+                        <li>Feedback visual de erros</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>🎨 UI/UX</h4>
+                    <ul>
+                        <li>Design System completo</li>
+                        <li>Responsivo mobile-first</li>
+                        <li>Animações e transições</li>
+                        <li>Loading states (skeletons)</li>
+                        <li>Breadcrumbs navegáveis</li>
+                        <li>Sistema de tabs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Módulos Desenvolvidos -->
+        <section class="section">
+            <h2 class="section-title">8. Módulos Desenvolvidos</h2>
+
+            <p>O frontend foi organizado em 21 módulos principais seguindo arquitetura modular:</p>
+
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">account</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">cart</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">categories</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">checkout</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">collections</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">common</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">favorites</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">home</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">hoster</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">layout</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">lockers</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">order</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">pickup</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">products</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">search</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">shipping</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">skeletons</div>
+                </div>
+                <div class="stat-card" style="padding: 15px;">
+                    <div class="label">store</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Próximos Passos -->
+        <section class="section">
+            <h2 class="section-title">9. Próximos Passos</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Fase 1: Autenticação e RBAC</h4>
+                    <p>Implementar sistema completo de login/registro, roles de usuário (customer, colabe, hoster, admin) e políticas de segurança no Supabase.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Fase 2: Modelagem de Dados Customizados</h4>
+                    <p>Criar tabelas Prisma para Hosters, Lockers, LockerSlots, Reservations e QRCodes com relacionamentos ao Medusa.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Fase 3: Sistema de Lockers</h4>
+                    <p>API de integração com hardware, sistema de reserva de slots (20 min), geração de QR codes e fluxo completo de pickup.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Fase 4: Checkout e Pagamentos</h4>
+                    <p>Integração com Stripe Connect para split payments, processamento de pedidos e confirmação em tempo real.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Fase 5: Deploy e Monitoramento</h4>
+                    <p>Deploy na Vercel, configuração de CI/CD, monitoring com Sentry e analytics com PostHog.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Conclusão -->
+        <section class="section">
+            <h2 class="section-title">10. Conclusão</h2>
+
+            <div class="info-box highlight">
+                <p><strong>Entrega realizada com sucesso!</strong></p>
+                <p style="margin-top: 10px;">O protótipo de interface do Keepit Brasil MVP foi desenvolvido com foco em qualidade, usabilidade e escalabilidade. A decisão de concentrar esforços na UI permitiu criar uma experiência de usuário completa e refinada, pronta para validação de mercado e próximas fases de desenvolvimento.</p>
+            </div>
+
+            <h3 class="section-subtitle">Resumo das Entregas</h3>
+            <ul class="feature-list">
+                <li><strong>Frontend completo</strong> com 33.001 linhas de código TypeScript</li>
+                <li><strong>Backend Medusa.js 2.0</strong> configurado e operacional</li>
+                <li><strong>Banco de dados Supabase</strong> com 150+ tabelas migradas</li>
+                <li><strong>Design System</strong> documentado e implementado</li>
+                <li><strong>Integração Google Maps</strong> para localização de lockers</li>
+                <li><strong>Fluxo de checkout</strong> completo em 3 etapas</li>
+                <li><strong>Formulário de parceiros</strong> com validação completa</li>
+                <li><strong>11 documentos técnicos</strong> de suporte ao desenvolvimento</li>
+            </ul>
+
+            <h3 class="section-subtitle">Como Acessar</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>🖥️ Frontend (Storefront)</h4>
+                    <ul>
+                        <li><strong>URL:</strong> http://localhost:8000</li>
+                        <li><strong>Comando:</strong> cd storefront && npm run dev</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>⚙️ Backend (Medusa Admin)</h4>
+                    <ul>
+                        <li><strong>URL:</strong> http://localhost:9000/app</li>
+                        <li><strong>Comando:</strong> cd medusa-backend && npm run dev</li>
+                        <li><strong>Login:</strong> admin@keepit.com</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer (inside main content) -->
+    <footer class="footer">
+        <p><strong>Keepit Brasil MVP</strong> - Relatório de Entrega do Protótipo</p>
+        <p style="margin-top: 10px;">Desenvolvido por Digibrands Global LLC | Dezembro 2025</p>
+        <p style="margin-top: 5px;">Contrato KB-DGB-001/2025</p>
+    </footer>
+
+    </div> <!-- End of mainContent -->
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Lightbox JavaScript -->
+    <script>
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            const img = element.querySelector('img');
+            const caption = element.querySelector('.caption');
+
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+
+            // Extract caption text (without click-hint)
+            const captionClone = caption.cloneNode(true);
+            const clickHint = captionClone.querySelector('.click-hint');
+            if (clickHint) clickHint.remove();
+            lightboxCaption.innerHTML = captionClone.innerHTML;
+
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Prevent closing when clicking on image
+        document.getElementById('lightbox-img').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Password Protection
+        const CORRECT_PASSWORD = 'Keepit2026#';
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const overlay = document.getElementById('passwordOverlay');
+            const mainContent = document.getElementById('mainContent');
+
+            if (input.value === CORRECT_PASSWORD) {
+                overlay.classList.add('hidden');
+                mainContent.classList.add('visible');
+                sessionStorage.setItem('keepitAuth', 'true');
+            } else {
+                input.classList.add('error');
+                errorMessage.classList.add('show');
+                setTimeout(() => {
+                    input.classList.remove('error');
+                }, 500);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        }
+
+        // Check if already authenticated in this session
+        document.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('keepitAuth') === 'true') {
+                document.getElementById('passwordOverlay').classList.add('hidden');
+                document.getElementById('mainContent').classList.add('visible');
+            }
+            // Focus on password input
+            document.getElementById('passwordInput').focus();
+        });
+    </script>
+
+</body>
+</html>
