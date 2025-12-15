@@ -5,19 +5,31 @@ import medusaError from "@lib/util/medusa-error"
 import { HttpTypes } from "@medusajs/types"
 import { getCacheOptions } from "./cookies"
 
-export const listRegions = async () => {
-  const next = {
-    ...(await getCacheOptions("regions")),
-  }
+// Mock region for when backend is unavailable (prototype mode)
+const MOCK_REGION: HttpTypes.StoreRegion = {
+  id: "reg_mock_br",
+  name: "Brazil",
+  currency_code: "brl",
+  countries: [{ iso_2: "br", name: "Brazil", display_name: "Brazil" }],
+} as HttpTypes.StoreRegion
 
-  return sdk.client
-    .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions`, {
-      method: "GET",
-      next,
-      cache: "force-cache",
-    })
-    .then(({ regions }) => regions)
-    .catch(medusaError)
+export const listRegions = async () => {
+  try {
+    const next = {
+      ...(await getCacheOptions("regions")),
+    }
+
+    return sdk.client
+      .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions`, {
+        method: "GET",
+        next,
+        cache: "force-cache",
+      })
+      .then(({ regions }) => regions)
+  } catch (error) {
+    // Return mock region when backend is unavailable (prototype mode)
+    return [MOCK_REGION]
+  }
 }
 
 export const retrieveRegion = async (id: string) => {
