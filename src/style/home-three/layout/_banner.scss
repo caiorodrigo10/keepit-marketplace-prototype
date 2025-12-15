@@ -1,0 +1,851 @@
+.banner {
+  @extend %of-hidden;
+
+  &--style1 {
+    .banner {
+      &__wrapper {
+        @extend %pt-40,
+        %px-20,
+        %of-hidden;
+        background-image: url(/images/banner/home1/bg.png);
+        background-size: cover;
+        margin-top: 80px;
+        border-radius: 1.3rem;
+
+        @include breakpoint(sm) {
+          padding-top: 50px;
+          padding-inline: 32px;
+        }
+
+        @include breakpoint(md) {
+          padding-top: 20px;
+          padding-inline: 32px;
+        }
+
+        @include breakpoint(lg) {
+          padding-top: 40px;
+          padding-inline: 60px;
+          border-radius: 2rem;
+        }
+
+        @include breakpoint(xl) {
+          padding-top: 40px;
+          padding-inline: 90px;
+        }
+      }
+
+      &__content {
+        &-heading {
+          @extend %text-capitalize;
+          margin-bottom: 16px;
+          color: $white-color;
+        }
+
+        &-moto {
+          @extend %mb-20;
+          color: $white-color;
+
+          @include breakpoint(sm) {
+            margin-block-end: 30px;
+          }
+
+          @include breakpoint(md) {
+            margin-block-end: 10px ;
+          }
+
+          @include breakpoint(lg) {
+            margin-block-end: 28px;
+          }
+
+          @include breakpoint(xxl) {
+            max-width: 45ch
+          }
+        }
+      }
+
+      &__thumb {
+        @extend %p-rel;
+        text-align: center;
+
+        img {
+          @extend %p-rel;
+        }
+
+        @include breakpoint(lg) {
+          text-align: end;
+        }
+
+        &::before {
+          content: "";
+          @extend %p-abs;
+          width: 350px;
+          height: 350px;
+          background-color: rgba($color: #187474, $alpha: 1.0);
+          border-radius: 50%;
+          top: 10%;
+          left: 0;
+          filter: blur(40px);
+
+          @include breakpoint(lg) {
+            left: 15%;
+          }
+
+          @include breakpoint(xxl) {
+            left: 20%;
+          }
+
+        }
+      }
+    }
+  }
+
+
+
+  &--style2 {
+    .banner {
+      &__inner {
+        margin-top: 80px;
+      }
+
+      &__wrapper {
+        background-color: $bg-color-3;
+        border-radius: 1.3rem;
+        background-size: cover;
+        padding: 40px 30px;
+        padding-block-end: 0;
+        height: 100%;
+
+        @extend %of-hidden,
+        %p-rel;
+
+        @include breakpoint(sm) {
+          padding: 50px;
+          padding-block-end: 0;
+        }
+
+        @include breakpoint(md) {
+          padding: 40px;
+        }
+
+        @include breakpoint(lg) {
+          border-radius: 1.5rem;
+          padding: 70px 60px;
+        }
+
+        @include breakpoint(xxl) {
+          padding: 90px 70px;
+        }
+
+      }
+
+      &__content {
+        &-heading {
+          @extend %text-capitalize;
+          margin-bottom: 16px;
+          max-width: 15ch;
+        }
+
+        &-moto {
+          @extend %mb-20;
+          color: $title-color;
+          @include font-size(18px);
+
+          @include breakpoint(sm) {
+            margin-block-end: 30px;
+          }
+
+          @include breakpoint(md) {
+            margin-block-end: 28px;
+            max-width: 29ch
+          }
+
+
+        }
+      }
+
+      &__thumb {
+        text-align: end;
+        bottom: 0;
+
+        @include breakpoint(md) {
+          position: absolute;
+          bottom: 0;
+          right: 20px;
+          max-width: initial;
+
+          img {
+            max-width: 80%;
+          }
+        }
+
+        @include breakpoint(lg) {
+          right: 10%;
+
+          img {
+            max-width: 90%;
+          }
+        }
+
+        @include breakpoint(xl) {
+          right: 20px;
+
+          img {
+            max-width: 85%;
+          }
+        }
+
+        @include breakpoint(xxl) {
+          img {
+            max-width: 90%;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+  &--style3 {
+    .banner {
+      &__wrapper {
+        @extend %pt-40,
+        %px-20,
+        %of-hidden,
+        %p-rel;
+        background-size: cover;
+        padding-block: 80px 100px;
+
+
+
+        @include breakpoint(md) {
+          padding-block: 100px 120px;
+        }
+
+        @include breakpoint(lg) {
+          padding-block: 90px 150px;
+        }
+
+        @include breakpoint(xxl) {
+          padding-block: 120px 170px;
+        }
+
+        &::before {
+          content: "";
+          @extend %p-abs;
+          width: 40%;
+          max-width: 250px;
+          height: 50%;
+          background: linear-gradient(180deg, rgba(116, 183, 78, 0) 0%, #74B74E 100%);
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+
+          @include breakpoint(md) {
+            max-width: 150px;
+            left: auto;
+            right: 2%;
+            height: 100%;
+          }
+
+          @include breakpoint(lg) {
+            right: 3%;
+            max-width: 250px;
+          }
+
+          @include breakpoint(xl) {
+            right: 5%;
+          }
+
+          @include breakpoint(xxl) {
+            right: 20%;
+          }
+
+        }
+      }
+
+      &__content {
+        &-heading {
+          @extend %text-capitalize;
+          margin-bottom: 16px;
+          color: $white-color;
+        }
+
+        &-moto {
+          @extend %mb-20;
+          color: $white-color;
+
+          @include breakpoint(sm) {
+            margin-block-end: 30px;
+          }
+
+          @include breakpoint(lg) {
+            margin-block-end: 28px;
+          }
+
+          @include breakpoint(xxl) {
+            max-width: 45ch
+          }
+        }
+      }
+
+      &__thumb {
+        @extend %p-rel;
+        text-align: center;
+
+        img {
+          @extend %p-rel;
+          border-radius: 20px; // Bordas arredondadas
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); // Sombra suave
+
+          @include breakpoint(sm) {
+            max-width: 65%;
+            border-radius: 24px;
+          }
+
+          @include breakpoint(md) {
+            max-width: 70%;
+          }
+
+          @include breakpoint(lg) {
+            max-width: 75%;
+          }
+        }
+
+        @include breakpoint(lg) {
+          text-align: end;
+        }
+
+
+      }
+    }
+  }
+
+  // Centered banner variant
+  &--centered {
+    overflow: visible !important;
+
+    .banner {
+      &__wrapper {
+        padding-block: 100px 100px !important;
+        overflow: visible !important;
+
+        @include breakpoint(md) {
+          padding-block: 120px 120px !important;
+        }
+
+        @include breakpoint(lg) {
+          padding-block: 140px 140px !important;
+        }
+
+        // Remove green gradient background
+        &::before {
+          display: none;
+        }
+      }
+
+      &__content {
+        text-align: center;
+
+        &--centered {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+
+          @include breakpoint(lg) {
+            gap: 6px;
+          }
+        }
+
+        h1 {
+          max-width: 100%;
+          font-size: 2rem;
+          text-transform: none;
+
+          @include breakpoint(md) {
+            font-size: 2.5rem;
+          }
+
+          @include breakpoint(lg) {
+            font-size: 3rem;
+          }
+        }
+
+        p {
+          max-width: 60ch;
+          margin-inline: auto;
+          font-size: 1.125rem;
+          line-height: 1.6;
+          margin-bottom: 0;
+
+          @include breakpoint(lg) {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Search bar component
+  &__search {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 10;
+
+    @include breakpoint(lg) {
+      margin-top: 32px;
+    }
+
+    // Override styles when inside banner (homepage)
+    .banner__search-wrapper {
+      display: flex;
+      align-items: center;
+      background-color: $white-color;
+      border-radius: 8px;
+      padding: 8px 8px 8px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      gap: 12px;
+
+      @include breakpoint(md) {
+        padding: 12px 12px 12px 24px;
+      }
+    }
+
+    .banner__search-icon {
+      display: flex;
+      align-items: center;
+      color: #67FB94;
+      font-size: 20px;
+      flex-shrink: 0;
+
+      @include breakpoint(md) {
+        font-size: 24px;
+      }
+    }
+
+    .banner__search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      color: $title-color;
+      background: transparent;
+      padding: 8px;
+
+      @include breakpoint(md) {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+
+    .banner__search-btn {
+      background-color: #67FB94;
+      color: $title-color;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: $transition;
+      flex-shrink: 0;
+
+      @include breakpoint(md) {
+        padding: 14px 32px;
+        font-size: 16px;
+      }
+
+      &:hover {
+        background-color: darken(#67FB94, 8%);
+      }
+    }
+
+    // Legacy selectors for backward compatibility
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      background-color: $white-color;
+      border-radius: 8px;
+      padding: 8px 8px 8px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      gap: 12px;
+
+      @include breakpoint(md) {
+        padding: 12px 12px 12px 24px;
+      }
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      color: #67FB94;
+      font-size: 20px;
+      flex-shrink: 0;
+
+      @include breakpoint(md) {
+        font-size: 24px;
+      }
+    }
+
+    &-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      color: $title-color;
+      background: transparent;
+      padding: 8px;
+
+      @include breakpoint(md) {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+
+    &-btn {
+      background-color: #67FB94;
+      color: $title-color;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: $transition;
+      flex-shrink: 0;
+
+      @include breakpoint(md) {
+        padding: 14px 32px;
+        font-size: 16px;
+      }
+
+      &:hover {
+        background-color: darken(#67FB94, 8%);
+      }
+    }
+  }
+
+
+
+
+
+  &__btn-group {
+    @extend %mb-40;
+
+    @include breakpoint(sm) {
+      margin-block-end: 50px;
+    }
+
+    @include breakpoint(lg) {
+      gap: 30px;
+      margin-block-end: 20px;
+    }
+  }
+
+
+  &__shape {
+
+    &-item {
+      @extend %p-abs;
+
+      &--1 {
+        width: 60px;
+        z-index: 2;
+        top: 330px;
+        left: 60%;
+        @include animation(floating 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(md) {
+          top: 250px;
+        }
+
+        @include breakpoint(lg) {
+          width: auto;
+          top: 300px;
+          left: 55%;
+        }
+
+
+        @include breakpoint(xl) {
+          top: 260px;
+        }
+
+        @include breakpoint(xxl) {
+          left: auto;
+          right: 40%;
+        }
+
+      }
+
+      &--2 {
+        width: 40px;
+        top: 700px;
+        right: 88%;
+        z-index: 1;
+        @include animation(rotate 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(sm) {
+          top: 750px;
+          right: 82%;
+        }
+
+        @include breakpoint(md) {
+          top: 430px;
+          right: 46%;
+        }
+
+        @include breakpoint(lg) {
+          top: 550px;
+          right: 55%;
+        }
+
+
+        @include breakpoint(xl) {
+          width: auto;
+          top: 450px;
+          right: 52%;
+        }
+
+        @include breakpoint(xxl) {
+          right: 52%;
+          left: auto;
+          top: 450px;
+        }
+      }
+
+
+      &--3 {
+        width: 70px;
+        top: 450px;
+        right: 15%;
+        z-index: 1;
+        @include animation(left-right 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(sm) {
+
+          top: 60px;
+          right: 9%;
+        }
+
+        @include breakpoint(md) {
+          top: 70px;
+          right: 10%;
+        }
+
+        @include breakpoint(lg) {
+          width: auto;
+          top: 80px;
+          right: 3%;
+        }
+
+
+        @include breakpoint(xl) {
+          top: 265px;
+          right: 15%;
+        }
+
+        @include breakpoint(xxl) {
+          top: 260px;
+          right: 22%;
+        }
+
+      }
+
+      &--4 {
+        top: 560px;
+        right: 9%;
+        z-index: 1;
+        @include animation(floating 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(sm) {
+
+          top: 500px;
+          right: 9%;
+        }
+
+        @include breakpoint(md) {
+          top: 400px;
+          right: 10%;
+        }
+
+        @include breakpoint(lg) {
+          width: auto;
+          right: 3%;
+        }
+
+
+        @include breakpoint(xl) {
+          right: 11%;
+        }
+
+        @include breakpoint(xxl) {
+          right: 22%;
+        }
+      }
+
+      &--5 {
+        width: 65px;
+        top: 185px;
+        left: 3%;
+        z-index: 1;
+        @include animation(floating 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+
+        @include breakpoint(md) {
+          width: 80px;
+          top: 28%;
+          left: 3%;
+        }
+
+        @include breakpoint(lg) {
+          width: auto;
+          top: 250px;
+          left: 3%;
+        }
+
+
+        @include breakpoint(xl) {
+          top: 250px;
+          left: 15%;
+        }
+
+        @include breakpoint(xxl) {
+          top: 235px;
+          left: 17%;
+        }
+
+        @include breakpoint(xxxl) {
+          left: 25%;
+        }
+      }
+
+      &--6 {
+        @extend %d-none;
+        width: 70px;
+        top: 51%;
+        left: 9%;
+        z-index: 1;
+        @include animation(left-right 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+
+        @include breakpoint(lg) {
+          top: 15%;
+          left: 7%;
+        }
+
+
+        @include breakpoint(xl) {
+          display: block;
+          width: auto;
+          top: 200px;
+          left: -2%;
+        }
+
+        @include breakpoint(xxl) {
+          top: 250px;
+          left: 5%;
+        }
+
+        @include breakpoint(xxxl) {
+          top: 250px;
+        }
+      }
+
+      &--7 {
+        @extend %d-none;
+        width: 100px;
+        top: 880px;
+        right: 3%;
+        z-index: 1;
+        @include animation(left-right 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(sm) {
+          top: 900px;
+          right: 3%;
+        }
+
+        @include breakpoint(md) {
+          width: auto;
+          top: 520px;
+          right: 3%;
+        }
+
+        @include breakpoint(lg) {
+          display: block;
+          top: 630px;
+          right: 20%;
+          width: 120px;
+        }
+
+
+        @include breakpoint(xl) {
+          width: auto;
+          right: 3%;
+        }
+
+        @include breakpoint(xxxl) {
+          right: 12%;
+        }
+      }
+
+    }
+
+    &--home2 {
+      .banner__shape-item {
+        &--2 {
+          right: 62% !important;
+        }
+
+        &--5 {
+
+          left: 70%;
+          top: 180px;
+
+          @include breakpoint(lg) {
+            left: 18%;
+            top: 180px;
+          }
+        }
+      }
+    }
+
+    &--home3 {
+      .banner__shape-item {
+        &--1 {
+          left: 18%;
+          top: 180px;
+        }
+
+        &--2 {
+          right: 50% !important;
+          top: 400px;
+        }
+
+
+        &--3 {
+          right: 10%;
+        }
+
+        &--4 {
+          right: 5%;
+          top: 500px;
+        }
+
+
+      }
+    }
+
+  }
+
+}

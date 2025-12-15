@@ -1,0 +1,781 @@
+.sale-banner {
+  @extend %p-rel;
+
+  &__item {
+    &-inner {
+      @extend %d-flex,
+      %of-hidden,
+      %p-rel,
+      %align-i-center;
+      border-radius: 1rem;
+
+      @include breakpoint(xl) {
+        border-radius: 1.5rem;
+      }
+    }
+
+    &-thumb {
+      img {
+        @extend %p-rel;
+        z-index: 99;
+        transition: $transition;
+      }
+    }
+
+    &-discount-badge {
+      @extend %p-abs;
+      top: 30px;
+      left: 400px;
+      background-color: $yellow-color;
+      border-radius: 50%;
+      width: 106px;
+      height: 106px;
+      text-align: center;
+      color: $title-color;
+      padding-top: 18px;
+      z-index: 998;
+
+
+      @include breakpoint(md) {
+        left: 100px;
+      }
+
+      @include breakpoint(lg) {
+        left: 380px;
+      }
+
+      @include breakpoint(xl) {
+        left: 430px;
+      }
+
+      @include breakpoint(xxl) {
+        left: 450px;
+      }
+
+      h3 {
+        margin-bottom: 0;
+        line-height: 20px;
+      }
+
+      span {
+        font-size: 14px;
+      }
+
+      &--style2 {
+        background-color: $brand-color;
+        color: $white-color;
+        top: 25px;
+        left: 60px;
+        width: 78px;
+        height: 78px;
+        padding-top: 4px;
+
+        @include breakpoint(sm) {
+          top: 25px;
+          left: 130px;
+        }
+
+        @include breakpoint(md) {
+          top: 25px;
+          left: 250px;
+        }
+
+        @include breakpoint(lg) {
+          top: 25px;
+          left: 110px;
+        }
+
+        @include breakpoint(xl) {
+          top: 25px;
+          left: 150px;
+        }
+
+        span {
+          font-size: 12px;
+          color: $text-color-dark !important;
+        }
+
+        h4 {
+          color: $white-color;
+          margin-bottom: 0;
+          line-height: 14px;
+        }
+      }
+
+      &--style3 {
+        background-color: $brand-color;
+        color: $white-color;
+        top: 20px;
+        left: 20px;
+        width: 74px;
+        height: 74px;
+        padding-top: 10px;
+
+        @include breakpoint(md) {
+          top: 30px;
+          left: 135px;
+        }
+
+        span {
+          font-size: 12px;
+          color: $text-color-dark !important;
+        }
+
+        h4 {
+          color: $white-color;
+          margin-bottom: 0;
+          line-height: 14px;
+        }
+      }
+    }
+
+
+    &--style1 {
+      .sale-banner__item {
+        &-inner {
+          background-color: $brand-color;
+          background-image: url(/images/product/sale-banner/vegs-banner.png);
+        }
+
+        &-thumb {
+          background: $bg-color-3;
+          border-radius: 0 0 50% 50%;
+          overflow: hidden;
+          border-bottom: 5px solid $white-color;
+          width: 100%;
+
+          @include breakpoint(md) {
+            width: 40%;
+            height: 280px;
+            border-radius: 0;
+            border: none;
+            background-color: transparent;
+
+            img{
+              bottom: -110px;
+              left: -30px;
+            }
+          }
+
+          @include breakpoint(lg) {
+            width: auto;
+            border-radius: 0;
+            border: none;
+            background-color: transparent;
+            img {
+                bottom: 0;
+                left: 0;
+              }
+          }
+
+          &:before {
+            content: '';
+            display: none;
+            position: absolute;
+            border-radius: 10%;
+            background-color: $bg-color-3;
+
+            @include breakpoint(sm) {
+              top: -67px;
+              left: 33px;
+              width: 450px;
+              height: 400px;
+              border-radius: 10%;
+              border: 10px solid $white-color;
+            }
+
+
+            @include breakpoint(md) {
+              display: block;
+              top: -65px;
+              left: -150px;
+              width: 400px;
+              height: 400px;
+              border-radius: 70%;
+              border: 5px solid $white-color;
+            }
+
+            @include breakpoint(lg) {
+              top: -90px;
+              left: -200px;
+              width: 700px;
+              height: 800px;
+              border-radius: 50%;
+              border: 10px solid $white-color;
+            }
+
+            @include breakpoint(xl) {
+              top: -90px;
+              left: -150px;
+              width: 700px;
+              height: 800px;
+              border-radius: 50%;
+              border: 10px solid $white-color;
+            }
+          }
+
+
+
+
+        }
+
+        &-content {
+          max-width: 40ch;
+          color: $white-color;
+          padding-inline: 24px;
+          padding-block: 24px;
+
+          @include breakpoint(md) {
+            margin-left: 10px;
+          }
+
+          h2 {
+            color: $white-color;
+          }
+
+
+          @include breakpoint(lg) {
+            margin-left: 0;
+          }
+
+          @include breakpoint(xl) {
+            margin-left: 12%;
+          }
+        }
+      }
+    }
+
+
+    &--style2 {
+      .sale-banner__item {
+
+        &-inner {
+          @extend %d-grid;
+          flex-wrap: nowrap;
+          padding-top: 24px;
+          background-color: $bg-color-3;
+          background-image: url(/images/product/sale-banner/sale-banner-bg-sm.png);
+
+
+          @include breakpoint(sm) {
+            display: flex;
+            padding-block: 32px;
+          }
+        }
+
+        &-thumb {
+          @include breakpoint(md) {
+            display: block;
+          }
+
+          &:before {
+            display: none
+          }
+
+        }
+
+        &-content {
+          @extend %p-rel;
+          margin-left: 0;
+          max-width: 30ch;
+          color: $title-color;
+          padding-block: 16px;
+          padding-inline: 16px;
+
+          @include breakpoint(sm) {
+            max-width: auto;
+            margin-left: 50px;
+
+          }
+
+          h2 {
+            color: $title-color;
+          }
+
+          span {
+            color: $brand-color;
+            font-weight: 500;
+          }
+
+          &::before {
+            @extend %p-abs;
+            content: "";
+            width: 1px;
+            height: 100%;
+            background-color: $border-color;
+            top: 0;
+            left: -20px;
+          }
+        }
+      }
+    }
+
+    &--style22 {
+      .sale-banner__item {
+
+        &-inner {
+          @extend %d-grid;
+          flex-wrap: nowrap;
+          background-color: $yellow-color-2;
+          background-image: url(/images/product/sale-banner/sale-banner-bg-sm2.png);
+          padding-top: 24px;
+
+          @include breakpoint(sm) {
+            display: flex;
+            padding-block: 32px;
+          }
+        }
+
+        &-thumb {
+          flex: 1;
+          text-align: center;
+        }
+
+        &-content {
+          @extend %p-rel;
+          max-width: 30ch;
+          color: $title-color;
+          padding-block: 18px;
+          padding-inline: 16px;
+          margin-left: 0;
+          flex: 1;
+
+          @include breakpoint(sm) {
+            max-width: auto;
+            margin-left: 50px;
+            padding-block: 16px;
+          }
+
+          h2 {
+            color: $title-color;
+          }
+
+          span {
+            color: $title-color;
+            font-weight: 500;
+          }
+
+
+          &::before {
+            @extend %p-abs;
+            content: "";
+            width: 1px;
+            height: 100%;
+            background-color: $title-color;
+            top: 0;
+            left: -20px;
+            opacity: 0.1;
+          }
+        }
+      }
+    }
+
+    &--style3 {
+      .sale-banner__item {
+
+        &-inner {
+          @extend %d-flex,
+          %align-i-center;
+          background-color: $bg-color-3;
+          background-image: url(/images/product/sale-banner/sale-banner-bg-sm.png);
+          flex-wrap: nowrap;
+          padding-inline: 16px;
+          padding-block: 30px 16px;
+
+          @include breakpoint(md) {
+            padding-inline: 32px;
+            padding-block: 60px 16px;
+          }
+        }
+
+        &-thumb {
+          display: none;
+
+          @include breakpoint(md) {
+            display: block;
+          }
+
+          &:before {
+            display: none
+          }
+
+        }
+
+        &-content {
+          @extend %p-rel;
+          flex: 1;
+          margin-left: 0;
+          max-width: 30ch;
+          color: $title-color;
+          padding-inline: 50px 0;
+
+
+
+          h2 {
+            color: $title-color;
+          }
+
+          span {
+            color: $brand-color;
+            font-weight: 500;
+          }
+        }
+
+
+        &--style2 {
+          background-color: $yellow-color-2;
+          background-image: url(/images/product/sale-banner/sale-banner-bg-sm2.png);
+
+          .sale-banner__item {
+            &-thumb {
+              flex: 1;
+              text-align: center;
+            }
+
+            &-content {
+              @extend %p-rel;
+              max-width: 30ch;
+              color: $title-color;
+              padding-block: 18px;
+              margin-left: 0;
+              flex: 1;
+
+              h2 {
+                color: $title-color;
+              }
+
+              span {
+                color: $title-color;
+                font-weight: 500;
+              }
+
+              &::before {
+                background-color: $title-color;
+                opacity: 0.1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &--style4 {
+      .sale-banner__item {
+        &-inner {
+          @extend %d-grid;
+          background-color: $bg-color-3;
+          background-image: url(/images/product/sale-banner/sale-banner-bg-sm.png);
+          flex-wrap: nowrap;
+          padding-inline: 24px;
+          padding-block: 32px 24px;
+          gap: 30px;
+
+          @include breakpoint(md) {
+            display: flex;
+            gap: 40px;
+          }
+        }
+
+
+        &-thumb {
+          &:before {
+            display: none
+          }
+
+        }
+
+        &-content {
+          @extend %p-rel;
+          flex: 1;
+          margin-left: 0;
+          max-width: 30ch;
+          color: $title-color;
+
+          h2 {
+            color: $title-color;
+          }
+
+          span {
+            color: $brand-color;
+            font-weight: 500;
+          }
+
+          @include breakpoint(lg) {
+            padding-block: 60px 50px;
+          }
+
+          @include breakpoint(xl) {
+            padding-block: 48px 20px;
+          }
+        }
+
+        &--style3 {
+          background-color: $pink-color;
+          background-position: bottom;
+          background-repeat: no-repeat;
+
+          .sale-banner__item {
+            &-inner {
+              @extend %d-grid;
+              padding: 0;
+            }
+
+            &-thumb {
+              flex: 1;
+              text-align: center;
+            }
+
+            &-content {
+              @extend %p-rel;
+              max-width: 30ch;
+              color: $title-color;
+              padding-block: 24px;
+              padding-inline: 24px;
+              margin-left: 0;
+              flex: 1;
+
+              h2 {
+                color: $title-color;
+              }
+
+              span {
+                color: $title-color;
+                font-weight: 500;
+              }
+
+              &::before {
+                background-color: $title-color;
+                opacity: 0.1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+    &--style5 {
+      .sale-banner__item {
+        &-inner {
+          @extend %d-grid;
+          padding: 0;
+          background-color: $yellow-color-2;
+          background-image: url(/images/product/sale-banner/sale-banner-bg-sm3.png);
+          background-size: cover;
+          background-position: bottom;
+          background-repeat: no-repeat;
+        }
+
+        &-thumb {
+          flex: 1;
+          text-align: center;
+        }
+
+        &-content {
+          @extend %p-rel;
+          max-width: 30ch;
+          color: $title-color;
+          padding-block: 24px;
+          padding-inline: 24px;
+          margin-left: 0;
+          flex: 1;
+
+          h2 {
+            color: $title-color;
+          }
+
+          span {
+            color: $title-color;
+            font-weight: 500;
+          }
+
+          &::before {
+            background-color: $title-color;
+            opacity: 0.1;
+          }
+        }
+      }
+
+
+
+
+    }
+
+    &--style52 {
+      .sale-banner__item {
+        &-inner {
+          @extend %d-grid;
+          padding: 0;
+          background-color: $pink-color;
+          background-position: bottom;
+          background-repeat: no-repeat;
+        }
+
+        &-thumb {
+          flex: 1;
+          text-align: center;
+        }
+
+        &-content {
+          @extend %p-rel;
+          max-width: 30ch;
+          color: $title-color;
+          padding-block: 24px;
+          padding-inline: 24px;
+          margin-left: 0;
+          flex: 1;
+
+          h2 {
+            color: $title-color;
+          }
+
+          span {
+            color: $title-color;
+            font-weight: 500;
+          }
+
+          &::before {
+            background-color: $title-color;
+            opacity: 0.1;
+          }
+        }
+      }
+    }
+
+
+    &--home2 {
+      .sale-banner__item {
+        &-inner {
+          background-image: url(/images/banner/home2/2.png);
+          background-size: cover;
+          background-position: center center;
+          border-radius: 1.5rem;
+          padding: 2.35rem 1.85rem;
+        }
+
+      }
+
+      .sale-banner__title {
+        max-width: 15ch;
+        margin-block-end: 1rem;
+      }
+
+      .sale-banner__offer {
+        color: $title-color;
+        text-transform: uppercase;
+      }
+    }
+
+    &:hover {
+      .sale-banner__item {
+        &-thumb {
+          img {
+            transform: scale(1.04);
+          }
+        }
+      }
+    }
+
+  }
+
+
+
+
+  &__shape {
+
+    &-item {
+      @extend %d-none,
+      %p-abs;
+
+      @include breakpoint(xl) {
+        display: block;
+      }
+
+      &--1 {
+        width: 40px;
+        top: 0;
+        left: 5%;
+        z-index: 1;
+        @include animation(floating 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(sm) {
+          top: 26%;
+          left: 9%;
+          width: 100px;
+        }
+
+        @include breakpoint(md) {
+          display: none;
+        }
+
+        @include breakpoint(lg) {
+          top: 15%;
+          left: 7%;
+        }
+
+
+        @include breakpoint(xl) {
+          display: block;
+          top: 400px;
+          left: 15%;
+        }
+
+        @include breakpoint(xxl) {
+          top: 350px;
+          right: 9%;
+        }
+
+        @include breakpoint(xxxl) {
+          top: 400px;
+          right: 19%;
+        }
+      }
+
+      &--2 {
+        width: 40px;
+        top: 570px;
+        right: 3%;
+        z-index: 1;
+        @include animation(left-right 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(sm) {
+          top: 26%;
+          right: 32%;
+          width: 140px;
+        }
+
+        @include breakpoint(md) {
+          width: auto;
+          top: 26%;
+          right: 30%;
+        }
+
+        @include breakpoint(lg) {
+          top: 49%;
+          right: 20%;
+          width: 120px;
+        }
+
+
+        @include breakpoint(xl) {
+          width: auto;
+          top: 42%;
+          right: 20%;
+        }
+
+        @include breakpoint(xxl) {
+          top: 44%;
+          right: 20%;
+        }
+
+        @include breakpoint(xxxl) {
+          top: 20%;
+          right: 15%;
+        }
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,158 @@
+.blog-details {
+    @extend %of-hidden, %p-rel;
+
+
+    &__thumb {
+        @extend %of-hidden,
+        %mb-35;
+        border-radius: 16px;
+
+        img {
+            @extend %w-100;
+            @include add-prefix(transition, $transition);
+            object-fit: cover;
+        }
+
+        &:hover {
+            img {
+                @include add-prefix(transform, scale(1.01));
+            }
+        }
+    }
+
+    &__meta {
+        @extend %pb-25;
+        color: $text-color;
+
+        ul {
+            @extend %d-grid;
+
+            @include breakpoint(sm) {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+            @include breakpoint(md) {
+                gap: 30px;
+            }
+
+            li {
+                @extend %d-inline-flex,
+                %align-i-center;
+                gap: 10px;
+                text-transform: capitalize;
+
+                @include breakpoint(max-md) {
+                    margin-block: 5px;
+                }
+
+                a {
+                    color: $text-color;
+                }
+
+                i,
+                svg {
+                    margin-inline-end: 8px;
+
+                    @include breakpoint(max-md) {
+                        margin-inline-end: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        @extend %mb-35;
+
+        h3 {
+            @extend %text-capitalize;
+            @extend %mb-10;
+
+        }
+
+        p {
+            color: $text-color;
+        }
+    }
+
+    &__segment {
+      @extend %d-flex;
+      gap: 1rem;
+        &-item {
+            @extend %mb-35;
+        }
+
+        &-content {
+            h5 {
+                @extend %text-medium,
+                %text-capitalize;
+            }
+        }
+        &-thumb{
+            img{
+                border-radius: 8px;
+            }
+        }
+    }
+
+    &__action {
+        &-inner {
+            @extend %d-flex,
+            %align-i-center,
+            %justify-between,
+            %py-25;
+            border-top: 1px solid $border-color;
+            border-bottom: 1px solid $border-color;
+            gap: 20px;
+
+            @include breakpoint(lg) {
+                padding-block: 28px;
+            }
+        }
+    }
+
+    &__quote{
+      @extend %p-rel,
+      %mb-35;
+      background-color: $brand-color;
+      padding: 2rem;
+      border-radius: 16px;
+      p{
+        color: $white-color;
+        font-size: $fs-big;
+      }
+      h5{
+        @extend %text-medium;
+        color: $white-color;
+        span{
+          color:$secondary-color;
+        }
+      }
+
+      &-icon{
+        @extend %p-abs;
+        bottom: 32px;
+        right: 38px;
+        i,svg{
+          color: $secondary-color;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    &__commentform {
+        @extend %p-30,
+        %mt-40;
+        background-color: $white-color;
+        
+        border-radius: 16px;
+
+        @include breakpoint(lg) {
+            padding: 40px;
+        }
+    }
+
+
+
+}

@@ -1,0 +1,209 @@
+.cart {
+    @extend %of-hidden;
+
+    &__product {
+        @extend %mb-40;
+
+        border: 1px solid rgba($secondary-color, $alpha: .1);
+
+
+        table {
+            @extend %w-100, 
+            %of-hidden;
+            border-radius: 1rem;
+
+            thead {
+                tr {
+                    background-color: $bg-color-4;
+                    border-bottom: 2px solid $border-color;
+
+                    th {
+                        color: $title-color;
+                        font-family: $title-font;
+                        font-size: $fs-h5;
+                        font-weight: 500;
+                        padding: 18px;
+                        border: none;
+
+                        @include breakpoint(md) {
+                            font-size: $fs-h4;
+                        }
+
+                        @include breakpoint(xl) {
+                            padding: 32px;
+                        }
+
+                        &:not(:first-child) {
+                            @extend %text-center;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                background-color: $white-color;
+
+                tr {
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $border-color-thin;
+                    }
+
+                    td {
+                        padding: 20px;
+                        border: none;
+
+                        &:not(:first-child) {
+                            @extend %text-center;
+                        }
+
+                        .cart-plus-minus {
+                            min-inline-size: 130px;
+                            max-inline-size: 140px;
+                            margin-inline: auto;
+                        }
+
+                        .close-btn {
+                            @extend %d-grid,
+                            %align-i-center;
+                            border-radius: 8px;                        
+                            background-color: rgba(red, 0.1);
+                            margin: auto;
+                            @include box(36px);
+                            transition: $transition;
+
+                            i,
+                            svg {
+                                font-size: 20px;
+                                color: $danger-color;
+                                transition: $transition;
+                            }
+
+                            &:hover {
+                                background-color: $danger-color;
+
+                                i,
+                                svg {
+                                    color: $white-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__item {
+        @extend %d-flex,
+        %align-i-center;
+        gap: 10px;
+        min-inline-size: 350px;
+
+
+        &-thumb {
+            @extend %of-hidden;
+            border-radius: .4rem;
+            width: 80px;
+        }
+
+        &-content {
+            width: calc(100% - 90px);
+            padding-left: 10px;
+
+            h4 {
+                a {
+                    @include add-prefix(transition, $transition);
+                }
+
+                font-weight: 500;
+            }
+        }
+
+        &-price {
+            del {
+                @include font-size(15px);
+            }
+
+            strong {
+                @extend %ms-5;
+                color: $brand-color;
+            }
+        }
+    }
+
+
+    &__total {
+        @extend %p-40;
+        background-color: $body-color;
+        border-radius: .4rem;
+
+        h3 {
+            @extend %mb-25;
+        }
+
+        &-data {
+            @extend %d-flex,
+            %justify-between,
+            %mb-20;
+            font-size: $fs-h4;
+            font-family: $title-font;
+
+            span:first-child {
+                color: $text-color;
+            }
+
+            span:last-child {
+                color: $title-color;
+            }
+
+            &--total {
+                border-top: 1px solid $border-color;
+                padding-top: 10px;
+                margin-block: .75rem 3rem;
+
+
+            }
+        }
+    }
+
+    &__footer {
+        @extend %d-flex,
+        %justify-between,
+        %align-i-center;
+
+        .input-group {
+            @extend %d-flex,
+            %align-i-center;
+            gap: 10px;
+
+            .form-label {
+                @extend %me-25;
+            }
+
+            .form-control {
+                border-radius: 7px !important;
+            }
+
+            .trk-btn {
+                border-radius: 7px !important;
+            }
+        }
+
+    }
+
+    &__payment {
+        h6 {
+            @extend %mb-20;
+        }
+
+        &-list {
+            @extend %d-flex,
+            %align-i-center;
+            gap: 5px;
+
+            li {
+                flex: 1;
+            }
+        }
+    }
+}

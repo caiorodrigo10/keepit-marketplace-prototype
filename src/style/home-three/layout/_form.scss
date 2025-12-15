@@ -1,0 +1,82 @@
+input,
+textarea {
+  @extend %w-100;
+  @include add-prefix(transition, $transition);
+  border-radius: 8px;
+  color: $text-color;
+  padding: 1rem 2rem;
+  z-index: 1;
+
+  &::placeholder {
+    font-weight: 400;
+    color: rgba($text-color, $alpha: .3);
+
+  }
+
+  &:focus-within {
+    outline: none;
+    border-color: none;
+    box-shadow: none;
+  }
+}
+
+
+.form-control {
+  background-color: $white-color;
+  border-color: $border-color;
+  padding: 13px 20px;
+  border-radius: 8px;
+  color: $title-color;
+
+  @include breakpoint(lg) {
+    padding: 16px 20px;
+  }
+
+  &:focus {
+    box-shadow: none;
+    border-color: $secondary-color;
+    color: $title-color;
+  }
+
+  &--style2{
+    background-color: $bg-color;
+  }
+}
+
+
+
+
+.form-label {
+  @extend %mb-5,
+  %text-medium;
+  @include font-size(18px);
+  font-family: $title-font;
+  color: $title-color;
+
+  @include breakpoint(xl) {
+    margin-bottom: 12px;
+
+  }
+}
+
+.input-group {
+  @include add-prefix(transition, $transition);
+  border: 1px solid rgba($text-color, $alpha: .3);
+  border-radius: .5rem;
+
+  &:focus-within {
+    border-color: $secondary-color;
+  }
+
+  .valid-tooltip,
+  .invalid-tooltip {
+    background-color: transparent;
+    top: 90%;
+  }
+
+}
+
+
+.showhide-pass {
+  position: relative;
+}

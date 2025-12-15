@@ -1,0 +1,387 @@
+// background image use 
+.bg-image {
+  background-repeat: no-repeat;
+}
+
+.of-hidden {
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: $bg-color !important;
+}
+
+
+//counter
+/* SCSS compiled to CSS */
+.countdown {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $yellow-color;
+  padding-inline: 8px;
+  padding-block: 6px;
+  border-radius: 10px;
+
+  &__block {
+    text-align: center;
+    position: relative;
+    align-items: center;
+    margin: 0 12px;
+
+    &:not(:last-child) {
+      &::after {
+        position: absolute;
+        content: ":";
+        font-size: 24px;
+        font-weight: 500;
+        color: $title-color;
+        right: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+
+  }
+
+  &__number {
+    font-size: 20px;
+    font-weight: bold;
+    color: $title-color;
+    margin-bottom: 0;
+  }
+
+  &__label {
+    font-size: 12px;
+    color: $title-color;
+    margin-bottom: 0;
+  }
+
+
+  &--style2 {
+    background-color: transparent;
+
+    .countdown {
+      &__number {
+        @extend %d-grid,
+        %place-i-center;
+        width: 70px;
+        height: 70px;
+        background-color: $bg-dark-color;
+        font-size: 24px;
+        font-weight: bold;
+        color: $white-color;
+        border-radius: 12px;
+        border: 1px solid $secondary-color;
+
+
+      }
+
+      &__block {
+        &::after {
+          display: none;
+        }
+      }
+
+      &__label {
+        font-size: 16px;
+        color: $white-color;
+      }
+    }
+  }
+}
+
+
+//  --------------  >>> section header style start here <<< ------------- //
+.section-header {
+  @extend %p-rel,
+  %mb-40,
+  %d-flex,
+  %align-i-center,
+  %justify-between;
+  gap: 20px;
+  z-index: 2;
+
+  @include breakpoint(lg) {
+    margin-bottom: 40px;
+  }
+
+  &__content {
+    @extend %d-flex,
+    %align-i-center;
+
+    h2 {
+      span {
+        color: $secondary-color;
+
+        &.style2 {
+          color: $brand-color;
+        }
+      }
+    }
+
+    p {
+      max-width: 55ch;
+    }
+  }
+
+
+  h2 {
+    @extend %text-capitalize,
+    %mb-0;
+
+    span {
+      color: $secondary-color;
+
+    }
+  }
+
+  p {
+    font-weight: 400;
+
+    &.mute {
+      color: $text-color;
+    }
+  }
+
+
+  &--max18 {
+    h2 {
+      max-inline-size: 18ch;
+    }
+  }
+
+  &--max20 {
+    h2 {
+      max-inline-size: 20ch;
+      margin: auto;
+    }
+  }
+
+  &--max50 {
+    @extend %text-center;
+    max-inline-size: 50ch;
+    margin: 0 auto 48px auto;
+
+    @include breakpoint(max-md) {
+      padding-inline: 10px;
+    }
+  }
+
+  &--max57 {
+    @extend %text-center;
+    max-inline-size: 57ch;
+    margin: 0 auto 48px auto;
+
+    @include breakpoint(max-md) {
+      padding-inline: 10px;
+    }
+  }
+
+  &--max65 {
+    @extend %text-center;
+    max-inline-size: 65ch;
+    margin: 0 auto 48px auto;
+
+    @include breakpoint(max-md) {
+      padding-inline: 10px;
+    }
+  }
+}
+
+.swiper-nav {
+  @extend %d-flex;
+  gap: 16px;
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    background-color: $white-color;
+    border-radius: 7px;
+    border: 1px solid $border-color;
+    transition: $transition;
+
+    i,
+    svg {
+      color: $title-color;
+      transition: $transition;
+    }
+
+    &:hover,
+    &.active {
+      background-color: $secondary-color;
+
+      i,
+      svg {
+        color: $white-color;
+      }
+    }
+  }
+}
+
+
+// trk-rgba 
+.subtitle {
+  @extend %d-flex,
+  %align-i-center;
+  gap: 10px;
+
+
+
+  p {
+    @include font-size(20px);
+    font-weight: 600;
+    font-family: $title-font;
+  }
+}
+
+//payment methods logo
+.payment {
+  @extend %d-flex,
+  %align-i-center,
+  %list-none,
+  %ps-0,
+  %mb-0;
+  gap: 6px;
+
+  @include breakpoint(md) {
+    gap: 8px;
+  }
+
+
+
+  &__item {
+    @extend %d-grid,
+    %place-i-center;
+    height: 40px;
+    width: auto;
+    padding-inline: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 7px;
+
+
+
+    h6 {
+      @include font-size(18px);
+      font-family: $text-font;
+    }
+  }
+}
+
+
+// scrollTop
+.scrollToTop {
+  @include add-prefix(transition, $transition);
+  position: fixed;
+  bottom: 5% !important;
+  right: 5% !important;
+  z-index: 9 !important;
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px !important;
+  color: $white-color;
+
+  &--style1 {
+    background-color: $brand-color !important;
+  }
+
+  &:hover {
+    @include add-prefix (transform, translateY(-5px));
+    color: $white-color;
+  }
+
+}
+
+
+.form-check {
+  cursor: pointer;
+}
+
+
+.form-check-input {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+
+//quantity btn
+.quantity-button {
+  @extend %d-inline-flex,
+  %align-i-center;
+  background-color: $bg-color;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 100%;
+  color: $title-color;
+  font-family: $title-font;
+  font-size: $fs-h4;
+  font-weight: 500;
+
+  &__control {
+    padding: 20px 20px;
+    background-color: $bg-color;
+    border: none;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $secondary-color;
+      color: $white-color;
+    }
+  }
+
+  &__display {
+    padding: 8px 16px;
+    min-width: 40px;
+    text-align: center;
+    display: inline-block;
+  }
+
+  &--style2 {
+    background-color: $white-color !important;
+    border: 1px solid $border-color-2;
+    font-size: $fs-h6;
+
+    .quantity-button {
+      &__control {
+        padding: 12px 20px;
+      }
+    }
+  }
+}
+
+.cart-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff3d00; /* or any accent color you prefer */
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+// Bottom Nav Spacing
+// Add padding to body on mobile to prevent content from hiding under bottom nav
+body {
+  @include breakpoint(max-xl) {
+    padding-bottom: 88px; // 68px nav height + 20px safety margin
+  }
+}

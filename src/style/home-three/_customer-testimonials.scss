@@ -1,0 +1,219 @@
+// CustomerTestimonials Section
+.customer-testimonials {
+  background-color: #E8F9ED;
+  padding-block: 5rem;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding-block: 3rem;
+  }
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1E1E1E;
+    margin-bottom: 1rem;
+    font-family: $title-font;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: #4A4A4A;
+    font-family: 'Montserrat', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__carousel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      gap: 1.5rem;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+
+    svg {
+      font-size: 1.25rem;
+      color: #1E1E1E;
+    }
+
+    &:hover {
+      background: #67FB94;
+      transform: translateY(-50%) scale(1.05);
+
+      svg {
+        color: #1E1E1E;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    &--left {
+      left: -24px;
+    }
+
+    &--right {
+      right: -24px;
+    }
+  }
+}
+
+// TestimonialCard Component
+.testimonial-card {
+  background: #FFFFFF;
+  border-radius: 1rem;
+  padding: 2rem;
+  min-width: 350px;
+  max-width: 350px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  @media (max-width: 768px) {
+    min-width: 300px;
+    max-width: 300px;
+    padding: 1.5rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid #67FB94;
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1E1E1E;
+    margin-bottom: 0.25rem;
+    font-family: 'Montserrat', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__location {
+    font-size: 0.875rem;
+    color: #9E9E9E;
+    font-family: 'Montserrat', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 0.8125rem;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+
+    svg {
+      font-size: 18px;
+      color: #F59E0B;
+    }
+  }
+
+  &__comment {
+    font-size: 0.875rem;
+    color: #4A4A4A;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 0.8125rem;
+    }
+  }
+
+  &__category {
+    display: inline-block;
+    background: #D1F4DC;
+    color: #34BF58;
+    padding: 0.35rem 0.875rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+  }
+}

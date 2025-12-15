@@ -1,0 +1,269 @@
+.footer {
+    @extend %of-hidden,
+    %p-rel;
+    color: $white-color;
+    background-color: #1E1E1E; // Fundo escuro igual do hero
+    font-weight: 400;
+
+
+
+    &__top {
+        padding-block: 80px;
+        background-color: #1E1E1E; // Fundo escuro igual do hero
+
+        @include breakpoint(sm) {
+            margin-block-end: 0;
+        }
+
+        &-wrapper {
+            @extend %p-rel;
+            z-index: 2;
+        }
+    }
+
+    &__about {
+        &-logo {
+            img {
+                @extend %mb-20;
+            }
+
+        }
+
+        &-moto {
+            @extend %mb-30;
+            color: $white-color; // Texto branco no fundo escuro
+
+            @include breakpoint(md) {
+                max-inline-size: 40ch;
+                margin-block-end: 32px;
+            }
+
+            @include breakpoint(xxl) {
+                max-inline-size: 38ch;
+            }
+
+            &--min {
+                @include breakpoint(md) {
+                    max-inline-size: 40ch;
+                }
+
+                @include breakpoint(xxl) {
+                    max-inline-size: 28ch !important;
+                }
+            }
+        }
+    }
+
+    &__links {
+        &-tittle {
+            h4 {
+                color: $white-color; // Texto branco no fundo escuro
+                @extend %mb-20;
+
+                @include breakpoint(sm) {
+                    margin-block-end: 20px
+                }
+            }
+        }
+
+    }
+
+    &__linklist {
+        &-item {
+            &:not(:last-child) {
+                margin-bottom: 12px;
+
+            }
+
+            p {
+                color: $white-color; // Texto branco
+            }
+
+            a {
+                @include add-prefix(transition, $transition);
+                color: $white-color; // Links brancos no fundo escuro
+                @extend %p-rel,
+                %d-inline-block;
+
+
+                &:hover {
+                    color: #67FB94; // Verde Keepit no hover
+                }
+            }
+
+        }
+    }
+
+    &__bottom {
+        background: #1E1E1E; // Fundo escuro igual do hero
+
+        &-wrapper {
+            @extend %d-flex,
+            %py-25;
+            gap: 20px;
+            color: $white-color; // Texto branco no fundo escuro
+            @include font-size(16px);
+
+            @include breakpoint(sm) {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            @include breakpoint(lg) {
+                flex-direction: row-reverse !important;
+            }
+        }
+
+        &-copyright {
+            @extend %mb-20,
+            %d-inline-flex,
+            %align-i-center;
+
+            @include breakpoint(sm) {
+                margin-block-end: 0;
+            }
+
+            p {
+                color: $white-color; // Texto branco
+
+                a {
+                    color: $white-color;
+                    transition: $transition;
+
+                    &:hover {
+                        color: #67FB94; // Verde Keepit no hover
+                    }
+                }
+            }
+        }
+    }
+
+    .newsletter__form {
+        border-radius: 7px !important;
+    }
+
+    &__shape {
+
+        &-item {
+            @extend %d-none,
+            %p-abs;
+
+            @include breakpoint(xl) {
+                display: block;
+            }
+
+
+            &--1 {
+                width: 70px;
+                top: 50px;
+                left: 9%;
+                z-index: 1;
+                @include animation(left-right 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+                @include breakpoint(sm) {
+
+                    top: 60px;
+                    left: 9%;
+                }
+
+                @include breakpoint(md) {
+                    top: 70px;
+                    left: 10%;
+                }
+
+                @include breakpoint(lg) {
+                    width: auto;
+                    top: 80px;
+                    left: 3%;
+                }
+
+
+                @include breakpoint(xl) {
+                    top: 50px;
+                    left: 50px;
+                }
+
+                @include breakpoint(xxl) {
+                    top: 50px;
+                    left: 50px;
+                }
+
+            }
+
+
+            &--2 {
+                right: 12%;
+                z-index: 1;
+                top: 100px;
+                @include animation(rotate 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+                @include breakpoint(sm) {
+                    top: 200px;
+                    right: 12%;
+                }
+
+                @include breakpoint(md) {
+                    top: 180px;
+                    right: 8%;
+                }
+
+                @include breakpoint(lg) {
+                    top: 250px;
+                    right: 52%;
+                }
+
+
+                @include breakpoint(xl) {
+                    top: 300px;
+                    right: 66%;
+                }
+
+                @include breakpoint(xxl) {
+                    right: 67%;
+                }
+            }
+
+            &--3 {
+                width: 60px;
+                z-index: 2;
+                top: 50px;
+                right: 8%;
+                @include animation(floating 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+                @include breakpoint(sm) {
+                    width: 80px;
+                    top: 260px;
+                    right: 2%;
+                }
+
+                @include breakpoint(md) {
+                    width: 70px;
+                    top: 360px;
+                    right: 4%;
+                }
+
+                @include breakpoint(lg) {
+                    width: auto;
+                    top: 260px;
+                    right: 3%;
+                }
+
+
+                @include breakpoint(xl) {
+                    top: 260px;
+                    bottom: 20%;
+                    right: 5%;
+                }
+
+                @include breakpoint(xxl) {
+                    top: 260px;
+                    left: auto;
+                    right: 4%;
+                }
+
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,19 @@
+.error {
+    &__inner {
+        @extend %p-20;
+    }
+
+    &__content {
+        h3 {
+            span {
+                color: $text-color;
+                font-weight: normal;
+
+            }
+        }
+
+        a{
+            @extend %mt-35;
+        }
+    }
+}

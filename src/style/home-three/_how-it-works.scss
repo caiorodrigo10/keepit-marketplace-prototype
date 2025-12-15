@@ -1,0 +1,147 @@
+// HowItWorks Section
+.how-it-works {
+  background-color: #F1F1F1;
+  padding-block: 5rem;
+
+  @media (max-width: 768px) {
+    padding-block: 3rem;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1E1E1E;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: $title-font;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: #4A4A4A;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  &__card {
+    background: #FFFFFF;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (max-width: 768px) {
+      padding: 1.75rem 1.25rem;
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #67FB94;
+    opacity: 0.3;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+      top: 0.75rem;
+      right: 1rem;
+    }
+  }
+
+  &__icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: rgba(103, 251, 148, 0.1);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+
+    svg {
+      font-size: 32px;
+      color: #67FB94;
+    }
+
+    @media (max-width: 768px) {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.25rem;
+
+      svg {
+        font-size: 28px;
+      }
+    }
+  }
+
+  &__card:hover &__icon-wrapper {
+    background: #67FB94;
+
+    svg {
+      color: #1E1E1E;
+    }
+  }
+
+  &__card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1E1E1E;
+    margin-bottom: 0.75rem;
+    font-family: $title-font;
+
+    @media (max-width: 768px) {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__card-description {
+    font-size: 0.875rem;
+    color: #4A4A4A;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 0.8125rem;
+    }
+  }
+}

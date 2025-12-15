@@ -1,0 +1,142 @@
+// ===============       *************      ================ //
+// Category Cards Section - Adapted from Torganic Template
+// ===============       *************      ================ //
+
+.featured-categories {
+  background-color: $white-color;
+
+  &__item {
+    height: 100%;
+
+    &-inner {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      padding: 2rem 1.5rem;
+      background-color: var(--category-color, $bg-color);
+      border-radius: 1rem;
+      transition: $transition;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      @include breakpoint(md) {
+        min-height: 200px;
+        padding: 2.5rem 1.5rem;
+      }
+
+      @include breakpoint(lg) {
+        min-height: 220px;
+      }
+
+      // Gradient overlay on hover
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+        &::before {
+          opacity: 1;
+        }
+
+        .featured-categories__thumb {
+          transform: scale(1.15);
+        }
+      }
+    }
+
+    &-thumb {
+      position: relative;
+      z-index: 2;
+    }
+
+    &-content {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__thumb {
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(md) {
+      margin-bottom: 1.25rem;
+    }
+
+    svg {
+      font-size: 3rem;
+      color: $white-color;
+
+      @include breakpoint(md) {
+        font-size: 3.5rem;
+      }
+    }
+  }
+
+  &__content {
+    h4 {
+      @extend %mb-0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+
+      @include breakpoint(md) {
+        font-size: 1.5rem;
+      }
+
+      a {
+        color: $white-color;
+        transition: $transition;
+        text-decoration: none;
+
+        &:hover {
+          color: $white-color;
+        }
+      }
+    }
+  }
+}
+
+// Mobile adjustments
+@include breakpoint(max-sm) {
+  .featured-categories {
+    &__item {
+      &-inner {
+        min-height: 160px;
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    &__thumb {
+      margin-bottom: 0.75rem;
+
+      svg {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__content {
+      h4 {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}

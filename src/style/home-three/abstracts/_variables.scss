@@ -1,0 +1,96 @@
+
+//===================== Keepit Brasil - Design System ===================== //
+
+:root {
+    // Cores Principais Keepit
+    --brand-color: #34BF58;           // Verde Keepit Primary
+    --secondary-color:#67FB94;        // Verde Keepit Light
+
+    // Fundos e Backgrounds
+    --body-color:#FFFFFF;             // Branco
+    --bg-color:#F1F1F1;               // Cinza Claro Keepit
+    --bg-color-2:#E8F9ED;             // Verde muito claro
+    --bg-color-3:#D1F4DC;             // Verde claro suave
+    --bg-color-4:#E0E0E0;             // Cinza médio
+    --bg-dark-color:#1E1E1E;          // Preto Keepit
+
+    // Tipografia
+    --title-color:#1E1E1E;            // Preto Keepit
+    --title-color-dark:#FFFFFF;        // Branco
+    --text-color: #4A4A4A;            // Cinza escuro
+    --text-color-dark:#F1F1F1;        // Cinza claro
+    --text-color-dark2:#9E9E9E;       // Cinza médio
+
+    // Bordas
+    --border-color: #67FB94;          // Verde claro Keepit
+    --border-color-thin: #E8F9ED;     // Verde muito claro
+    --border-color-1: #E0E0E0;        // Cinza
+    --border-color-2: #F1F1F1;        // Cinza claro
+
+    // Cores Base
+    --white-color:#FFFFFF;            // Branco
+    --black-color: #1E1E1E;           // Preto Keepit
+
+    // Cores de Feedback
+    --yellow-color: #F59E0B;          // Amarelo Warning
+    --yellow-color-2: #FEF3C7;        // Amarelo claro
+    --gray-color: #9E9E9E;            // Cinza
+    --pink-color: #FEE2E2;            // Rosa claro
+    --danger-color: #EF4444;          // Vermelho Error
+}
+
+
+//*-----------------------------------
+//*** Custom variables for theme end
+//*-----------------------------------
+
+//===================== Variables start===================== //
+// theme colors
+$brand-color: var(--brand-color);
+$secondary-color: var(--secondary-color);
+$body-color: var(--body-color);
+$title-color: var(--title-color);
+$title-color-dark: var(--title-color-dark);
+$text-color: var(--text-color);
+$text-color-dark: var(--text-color-dark);
+$text-color-dark2: var(--text-color-dark2);
+$white-color: var(--white-color);
+$black-color: var(--black-color);
+$border-color: var(--border-color);
+$border-color-thin: var(--border-color-thin);
+$border-color-1: var(--border-color-1);
+$border-color-2: var(--border-color-2);
+$bg-color: var(--bg-color);
+$bg-color-2: var(--bg-color-2);
+$bg-color-3: var(--bg-color-3);
+$bg-color-4: var(--bg-color-4);
+$bg-dark-color: var(--bg-dark-color);
+$yellow-color: var(--yellow-color);
+$yellow-color-2: var(--yellow-color-2);
+$gray-color: var(--gray-color);
+$pink-color: var(--pink-color);
+$danger-color: var(--danger-color);
+
+
+
+//=====================>>>\ Variables end ===================== //
+
+//Keepit Brasil Font Family
+
+$title-font:"Titillium Web", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+$text-font:"Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+//Template font sizes
+$fs-base: 16px !default;
+$fs-small:14px;
+$fs-big:18px;
+$fs-h1: 48px;
+$fs-h2: 32px;
+$fs-h3: 24px;
+$fs-h4: 20px;
+$fs-h5: 18px;
+$fs-h6: 16px;
+
+//Template transition
+$transition:all .3s ease-out;

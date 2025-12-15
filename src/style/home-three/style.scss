@@ -1,0 +1,157 @@
+/*!
+Template Name: Torganic | Organic Food eCommerce HTML Template
+Template URI: 
+Author: thetork
+Author URI: https: //themeforest.net/user/thetork/portfolio
+Description: Torganic is a premium, fully responsive HTML template designed for organic food eCommerce sites. Featuring clean, modern design and powerful functionality, it’s perfect for creating a professional online store. Boost your sales with Torganic's user-friendly layout, SEO-optimized code, and seamless shopping experience.
+Version: 1.0.0
+Text Domain: Torganic
+Tags: Crypto, Forex, and Stocks Trading Business
+
+*/
+
+
+
+/*
+-----------------Table of content start -----------------
+
+1. Configuration and helpers
+    -extends,
+    -variables,
+    -functions,
+    -mixins
+
+2. Vendors
+    -normalize,
+    -nice-select,
+    -rfs
+
+3. Base stuff
+    -fonts,
+    -typography,
+    -animations,
+    -common,
+    -helpers
+
+
+4. Layout-related sections
+    -header,
+    -banner,
+    -contact,
+    -account,
+    -form,
+    -footer
+
+
+5. Components
+    -button,
+    -preloader,
+    -lightdark-switch,
+    -social-link,
+    -foating-content,
+    -partner,
+    -feature,
+    -service,
+    -pricing,
+    -team,
+    -blog,
+    -blog-details,
+    -testimonial,
+    -cta,
+    -story,
+    -sidebar,
+    -faq,
+    -error,
+    -servicer-details,
+    -nav,
+    -roadmap,
+    -comment,
+    -about
+
+6. Page-specific styles
+    -home
+
+
+7. Themes
+    -theme
+
+-----------------Table of content end -----------------
+
+*/
+
+
+/*=====================================================================*/
+
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import 'abstracts/extends',
+'abstracts/variables',
+'abstracts/functions',
+'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendors/normalize',
+'vendors/nice-select',
+'vendors/rfs';
+
+// 3. Base stuff
+@import 'base/fonts',
+'base/typography',
+'base/animations',
+'base/common',
+'base/helpers';
+
+
+// 4. Layout-related sections
+@import 'layout/header',
+'layout/header-inicio',
+'layout/banner',
+'layout/contact',
+'layout/account',
+'layout/form',
+'layout/product-details',
+'layout/cart',
+'layout/invoice',
+'layout/footer';
+
+
+// 5. Components
+@import 'components/button',
+'components/preloader',
+'components/social-link',
+'components/partner',
+'components/feature',
+'components/comment',
+'components/address-autocomplete',
+'components/location-modal',
+'components/region-modal',
+'components/locker-info',
+'components/category-cards',
+'components/app-download',
+'components/features-benefits',
+'components/widget',
+'components/blog',
+'components/blog-details',
+'components/cta',
+'components/sidebar',
+'components/faq',
+'components/error',
+'components/nav',
+'components/counter',
+'components/sale-banner',
+'components/accordion',
+'components/product',
+'components/about',
+'components/checkout',
+'components/testimonial',
+'how-it-works',
+'customer-testimonials',
+'partner-brands';
+
+// 6. Page-specific styles
+@import 'pages/home';
+
+
+// 8. Themes
+@import 'themes/theme';

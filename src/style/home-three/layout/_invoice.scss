@@ -1,0 +1,218 @@
+
+
+.invoice {
+  &__header {
+    @extend %d-flex,
+    %justify-between;
+    background-color: $brand-color;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-top: 30px;
+    color: $text-color-dark;
+
+    @include breakpoint(xl) {
+      padding: 3rem;
+      margin-top: 80px;
+    }
+
+    &-company {
+      h3 {
+        margin-block: 2rem 1rem;
+        color: $white-color;
+      }
+
+      p {
+        max-width: 20ch;
+      }
+    }
+  }
+
+
+  &__table {
+    @extend %mt-40;
+
+    table {
+      thead {
+
+        tr {
+          border-bottom: 1px solid $border-color-1;
+        }
+
+        th {
+          color: $text-color;
+          font-weight: normal;
+          padding-block: 24px;
+        }
+      }
+
+      tbody {
+        tr {
+          padding-block: 20px;
+        }
+
+        td {
+          padding-block: 12px;
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+
+        td:first-child {
+          color: $text-color;
+        }
+      }
+    }
+  }
+
+  &__total {
+    @extend %mt-40;
+    background-color: $bg-color;
+    border-radius: 1rem;
+    padding: 1.5rem;
+
+
+    @include breakpoint(xl) {
+      padding: 3rem;
+    }
+
+    &-data {
+      @extend %d-flex,
+      %justify-between,
+      %mb-20,
+      %text-medium;
+      font-size: $fs-h4;
+      font-family: $title-font;
+      color: $title-color;
+
+
+
+      span:last-child {
+        @extend %text-bold;
+      }
+
+      &:last-child {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &__note {
+    @extend %mt-30;
+
+    h3 {
+      @extend %mb-15;
+    }
+
+    &-list {
+      li{
+        display: flex;
+        gap: .5rem;
+        align-items: start;
+        flex-wrap: wrap;
+        line-height: 1.5;
+        svg,i{
+          font-size: 1rem;
+          color:$secondary-color ;
+        }
+        p{
+          flex: 1;
+          margin-bottom: 0;
+        }
+      }
+      li:not(last-child) {
+        margin-bottom: .75rem;
+      }
+    }
+  }
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  @page{
+    margin: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+
+  .invoice {
+    &__header {
+      @extend %d-flex,
+      %justify-between;
+      background-color: $brand-color;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: $text-color-dark;
+      margin-top: 50px;
+
+
+      &-company {
+        h3 {
+          margin-block: 1rem .75rem;
+          color: $white-color;
+        }
+
+        p {
+          max-width: 20ch;
+        }
+      }
+    }
+
+
+    &__table {
+      margin-top: 10px;
+
+      table {
+        thead {
+
+          th {
+            padding-block: 14px;
+          }
+        }
+
+        tbody {
+          tr {
+            padding-block: 12px;
+          }
+
+          td {
+            padding-block: 8px;
+          }
+        }
+      }
+    }
+
+    &__total {
+      margin-top: 16px;
+
+      &-data {
+        font-size: $fs-h6;
+        margin-bottom: 10px;
+
+        &:last-child {
+          padding-top: 10px;
+        }
+      }
+    }
+
+    &__note {
+      margin-top: 10px;
+
+      h3 {
+        @extend %mb-15;
+      }
+
+      &-list {
+        li:not(last-child) {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}

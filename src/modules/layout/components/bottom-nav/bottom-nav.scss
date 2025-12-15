@@ -1,0 +1,334 @@
+// ========================================
+// Bottom Navigation - Keepit Brasil
+// Mobile-only fixed bottom navigation
+// ========================================
+
+// Variables from Design System
+$brand-primary: #34BF58;
+$brand-secondary: #67FB94;
+$bg-dark: #1E1E1E;
+$text-gray: #9E9E9E;
+$border-gray: #E0E0E0;
+$white: #FFFFFF;
+$danger: #EF4444;
+
+// Breakpoints
+$breakpoint-xl: 1200px;
+
+// Animations
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes slideUpIndicator {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// ========================================
+// Bottom Nav Container
+// ========================================
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $white;
+  border-top: 1px solid $border-gray;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 999;
+  animation: slideUp 0.4s ease-out;
+
+  // Hide on desktop (xl and above)
+  @media (min-width: $breakpoint-xl) {
+    display: none;
+  }
+
+  // Safety padding for devices with notch
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+// ========================================
+// Nav Container
+// ========================================
+.bottom-nav__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 68px;
+  padding: 8px 0;
+  max-width: 100%;
+}
+
+// ========================================
+// Nav Item
+// ========================================
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: all 0.3s ease-out;
+
+  // Tap area for better mobile UX
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 12px;
+  }
+
+  // Hover effect (for devices that support it)
+  @media (hover: hover) {
+    &:hover:not(.bottom-nav__item--active) {
+      .bottom-nav__icon {
+        color: lighten($text-gray, 10%);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // Active tap/press effect
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// ========================================
+// Icon Wrapper
+// ========================================
+.bottom-nav__icon-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+// ========================================
+// Icon
+// ========================================
+.bottom-nav__icon {
+  font-size: 28px;
+  color: $text-gray;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .bottom-nav__item--active & {
+    color: $brand-primary;
+    animation: bounce 0.5s ease-out;
+  }
+}
+
+// ========================================
+// Active Indicator (dot below icon)
+// ========================================
+.bottom-nav__indicator {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: $brand-primary;
+  border-radius: 50%;
+  animation: slideUpIndicator 0.3s ease-out;
+
+  // Pulse animation for active state
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: $brand-primary;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+}
+
+// ========================================
+// Badge (cart counter)
+// ========================================
+.bottom-nav__badge {
+  position: absolute;
+  top: -4px;
+  right: -12px;
+  background: $danger;
+  color: $white;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 12px;
+  padding: 2px 6px;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+  animation: badgePop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 1;
+
+  // Prevent text selection
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+// ========================================
+// Responsive Adjustments
+// ========================================
+
+// Small phones (< 375px)
+@media (max-width: 374px) {
+  .bottom-nav__container {
+    height: 64px;
+  }
+
+  .bottom-nav__icon {
+    font-size: 26px;
+  }
+
+  .bottom-nav__badge {
+    font-size: 9px;
+    padding: 1px 5px;
+    min-width: 16px;
+    height: 16px;
+  }
+}
+
+// Large phones and tablets (768px+)
+@media (min-width: 768px) and (max-width: 1199px) {
+  .bottom-nav__container {
+    height: 72px;
+    padding: 10px 0;
+  }
+
+  .bottom-nav__icon {
+    font-size: 30px;
+  }
+
+  .bottom-nav__badge {
+    font-size: 11px;
+    padding: 3px 7px;
+    min-width: 20px;
+    height: 20px;
+  }
+}
+
+// ========================================
+// Dark mode support (future-proofing)
+// ========================================
+@media (prefers-color-scheme: dark) {
+  .bottom-nav {
+    background: $bg-dark;
+    border-top-color: lighten($bg-dark, 10%);
+
+    .bottom-nav__icon {
+      color: lighten($text-gray, 20%);
+    }
+
+    .bottom-nav__item--active .bottom-nav__icon {
+      color: $brand-secondary;
+    }
+
+    .bottom-nav__indicator {
+      background: $brand-secondary;
+
+      &::after {
+        background: $brand-secondary;
+      }
+    }
+  }
+}
+
+// ========================================
+// Accessibility
+// ========================================
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .bottom-nav {
+    border-top-width: 2px;
+  }
+
+  .bottom-nav__icon {
+    font-size: 30px;
+  }
+
+  .bottom-nav__badge {
+    font-weight: 800;
+    border: 2px solid $white;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .bottom-nav,
+  .bottom-nav__icon,
+  .bottom-nav__indicator,
+  .bottom-nav__badge {
+    animation: none !important;
+  }
+
+  .bottom-nav__item {
+    transition: none;
+  }
+}

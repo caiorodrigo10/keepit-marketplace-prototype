@@ -1,0 +1,306 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.trk-btn {
+  @extend %p-rel,
+  %of-hidden;
+  display: inline-flex; // Usar flex para melhor alinhamento
+  align-items: center; // Centralizar verticalmente
+  justify-content: center; // Centralizar horizontalmente
+  @include font-size(14px);
+  border: transparent;
+  color: $white-color;
+  font-weight: 500;
+  font-family: $title-font;
+  padding: 13px 24px;
+  text-decoration: none;
+  @include add-prefix(transition, $transition);
+
+  @include breakpoint(md) {
+    font-size: 1rem;
+  }
+
+  text-transform: capitalize;
+  line-height: 1.5; // Aumentar line-height para melhor centralização
+  border-radius: 7px;
+  cursor: pointer;
+
+  svg,
+  i {
+    @extend %me-5;
+    transition: $transition;
+    color: $white-color !important;
+  }
+
+
+  &:after {
+    @extend %p-abs;
+    background: $white-color;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .2;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+
+
+  @include breakpoint(sm) {
+    padding: 1rem 1.25rem;
+  }
+
+  @include breakpoint(md) {
+    padding: 1.125rem 1.5rem;
+  }
+
+
+  &--primary {
+    background-color: $secondary-color;
+    padding: 20px 28px;
+    color: $title-color; // Cinza escuro Keepit (#1E1E1E) para contraste no verde claro
+
+    svg,
+    i {
+      color: $title-color !important; // Ícones também em cinza escuro
+    }
+  }
+
+
+  &--secondary {
+    background-color: $brand-color;
+
+  }
+
+  &--gray {
+    background-color: $gray-color;
+
+  }
+
+  &--yellow {
+    background-color: $yellow-color;
+    color: $title-color;
+
+  }
+
+  &--sm {
+    background-color: $secondary-color;
+    padding: 13px 24px;
+    color: $title-color; // Cinza escuro Keepit para contraste no verde claro
+
+    svg,
+    i {
+      color: $title-color !important; // Ícones também em cinza escuro
+    }
+  }
+
+  &--md {
+    background-color: $secondary-color;
+    padding: 16px 24px;
+    color: $title-color; // Cinza escuro Keepit para contraste no verde claro
+
+    svg,
+    i {
+      color: $title-color !important; // Ícones também em cinza escuro
+    }
+  }
+
+
+
+  &--large {
+    @include breakpoint(sm) {
+      padding: 0.95rem 1.25rem;
+    }
+
+    @include breakpoint(lg) {
+      padding: 1.25rem 1.875rem;
+    }
+  }
+
+
+
+
+
+  &--outline {
+    @extend %text-center;
+    @include add-prefix(transition, $transition);
+    width: max-content;
+    border: 1.2px solid $text-color;
+    color: $title-color;
+    padding: 6px 13px;
+    line-height: 22px;
+    font-weight: 500;
+
+  }
+
+
+
+  &.search-btn {
+    padding: 1.2rem 1.85rem;
+    @include font-size(18px);
+  }
+
+
+  span {
+    display: inline-flex; // Manter ícone na mesma linha do texto
+    align-items: center; // Alinhar verticalmente com o texto
+    position: relative;
+    z-index: 1;
+
+    i,
+    svg,
+    img {
+      @extend %ms-5;
+    }
+  }
+
+  &.active,
+  &:hover {
+
+    &.trk-btn {
+      color: $white-color;
+      transform: translateY(-3px);
+
+      &:after {
+        left: 120%;
+        transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    }
+
+    &.trk-btn--primary,
+    &.trk-btn--sm,
+    &.trk-btn--md {
+      color: $title-color; // Manter cinza escuro no hover dos botões verdes claros
+    }
+
+    &.trk-btn--yellow {
+      color: $title-color;
+    }
+
+    &.trk-btn--gray {
+      background-color: $title-color;
+      transform: none;
+    }
+
+
+    &.trk-btn--arrow {
+      transform: rotate(0deg);
+    }
+
+    &.trk-btn--outline {
+      background-color: $secondary-color !important; // Verde claro Keepit (#67FB94)
+      border-color: $secondary-color !important;
+      color: $title-color !important; // Cinza escuro Keepit (#1E1E1E)
+    }
+  }
+
+  &-active {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+  }
+
+}
+
+
+.text-btn {
+  @extend %align-i-center,
+  %p-rel,
+  %text-capitalize;
+  @include add-prefix(transition, $transition);
+  display: inline-flex;
+  font-weight: 500;
+  font-family: $title-font;
+  color: $brand-color;
+  border-bottom: 1px solid $brand-color;
+
+  &::after {
+    @extend %p-abs;
+    @include add-prefix(transition, $transition);
+    content: "";
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0%;
+    background-color: $brand-color;
+
+  }
+
+  &--style2 {
+    color: $secondary-color;
+
+    &::after {
+      @extend %p-abs;
+      @include add-prefix(transition, $transition);
+      content: "";
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      width: 0%;
+      background-color: $secondary-color;
+    }
+  }
+
+
+  i,
+  svg {
+    @include add-prefix(transition, $transition);
+    @extend %ms-10;
+  }
+
+
+  &.text-btn--small {
+    @extend %text-regular;
+    @include font-size(16px);
+    color: $title-color;
+    font-family: $text-font;
+
+    span {
+      @extend %me-10;
+      @include add-prefix(transition, $transition);
+    }
+  }
+
+  span {
+    @extend %ms-10;
+    @include add-prefix(transition, $transition);
+  }
+
+  &:hover {
+    color: $secondary-color;
+    border-color: $secondary-color;
+
+    i,
+    svg {
+      @extend %ms-15;
+    }
+
+    span {
+      @include add-prefix(transform, translateX(5px));
+    }
+  }
+}
+
+
+.btn-group {
+  @extend %d-flex,
+  %align-i-center;
+  gap: 20px;
+
+  &--gap-xs {
+    gap: 20px;
+  }
+
+  &--gap-sm {
+    gap: 20px;
+  }
+
+  &--gap-md {
+    gap: 20px;
+  }
+
+  &--gap-lg {
+    gap: 20px;
+  }
+}

@@ -1,0 +1,25 @@
+.faq {
+    @extend %p-rel;
+
+    &__thumb {
+        &--style1 {
+            @extend %text-center;
+
+            &::after {
+                position: absolute;
+                content: "";
+                top: 50%;
+                left: 50%;
+                height: 200px;
+                width: 200px;
+                backdrop-filter: blur(10px);
+                filter: blur(100px);
+                
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,1007 @@
+// ===============       *************      ================ //
+// This file contained all styles related header section
+// ===============       *************      ================ //
+
+//  --------------  >>>  header style start here <<< ------------- //
+@-webkit-keyframes slideLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slideRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+
+/*=================Header section css start here=====================*/
+.header {
+  width: 100%;
+  height: auto;
+  padding-block: 0.35rem;
+  margin: 0 auto;
+  z-index: 999;
+  border: none;
+  outline: none;
+  background: $title-color; // Preto Keepit (#1E1E1E) - quase preto
+  -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: initial;
+
+  @include breakpoint(sm) {
+    padding-block: 0.6rem;
+  }
+
+  @include breakpoint(lg) {
+    padding-block: 0.75rem;
+  }
+
+
+  &__wrapper {
+    @extend %d-flex,
+    %align-i-center,
+    %justify-between;
+
+    @include breakpoint(xl) {
+      position: relative;
+    }
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+
+  &__brand {
+    @extend %d-flex;
+
+    a {
+      img {
+        max-width: 150px;
+
+        @include breakpoint(xl) {
+          max-width: 200px;
+        }
+      }
+    }
+
+  }
+
+  &__navbar {
+    @extend %d-flex;
+    flex: 0 0 100%;
+    order: 3;
+    justify-content: flex-end;
+
+
+    @include breakpoint(xl) {
+      flex: 0 0 55%;
+      order: unset;
+      justify-content: flex-end;
+    }
+
+    @include breakpoint(xxl) {
+      flex: 0 0 60%;
+      order: unset;
+      justify-content: flex-end;
+    }
+  }
+
+  &__action {
+    @extend %d-flex,
+    %align-i-center,
+    %justify-end;
+
+    // Mostrar ícones de ação apenas em telas xl+
+    .header__action-btn {
+      display: none;
+
+      @include breakpoint(xl) {
+        display: grid !important;
+      }
+    }
+
+    @include breakpoint(xl) {
+      gap: 10px;
+    }
+
+    @include breakpoint(xxl) {
+      gap: 15px;
+      // justify-content: flex-end;
+    }
+
+    &-btn {
+      @extend %d-flex,
+      %align-i-center,
+      %justify-center,
+      %p-rel;
+      @include box(48px);
+      background-color: rgba(255, 255, 255, 0.1); // Fundo semi-transparente para contraste no preto
+      border-radius: 50%;
+      transition: $transition;
+
+      i,
+      svg {
+        font-size: 1.25rem;
+        color: $white-color; // Ícones brancos
+        transition: $transition;
+      }
+
+      &:hover {
+        background-color: $secondary-color !important;
+        color: $white-color !important;
+
+        i,
+        svg {
+          color: $title-color; // Ícones cinza escuro no hover
+        }
+      }
+    }
+
+    .menu-icon {
+      @extend %d-flex,
+      %align-i-center,
+      %justify-center;
+      position: relative;
+      font-size: 1.35rem;
+      gap: 1rem;
+      border: none;
+      outline: none;
+      color: $white-color; // Ícone branco
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    .search-icon {
+      @extend %ms-20;
+
+      @include breakpoint(xl) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(black, 0.4);
+    transition: all 0.5s ease-in-out;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+
+
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20rem;
+    height: 100%;
+    z-index: 999;
+    overflow: hidden;
+    transform: translate(-100%);
+    transition: $transition;
+    margin-inline: auto;
+
+    @include breakpoint(xl) {
+      position: static;
+      width: auto;
+      transform: initial;
+    }
+
+    &.active {
+      transform: translate(0%);
+    }
+
+    ul,
+    ol {
+      padding-inline-start: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    >ul {
+      >li {
+        display: block;
+
+        @include breakpoint(xl) {
+          display: inline-block;
+          margin-left: 1.5rem;
+        }
+
+
+
+        a {
+          @extend %p-rel;
+          display: block;
+          padding: .65rem 1rem;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          font-size: 0.875rem; // Reduzido de 1rem para 0.875rem (14px)
+
+          color: $title-color; // Mobile: cinza escuro
+          text-transform: capitalize;
+          text-rendering: optimizeLegibility;
+          transition: color 0.3s ease-in-out;
+
+          @include breakpoint(xl) {
+            color: $white-color; // Desktop: branco
+          }
+
+          span {
+            font-size: 12px;
+            margin-inline-end: 5px;
+            margin-inline-start: 4px;
+            margin-block-start: 4px;
+          }
+
+
+          >i,
+          >svg {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            text-align: center;
+            transform: translateY(-50%) rotate(-90deg);
+            color: currentColor;
+          }
+
+          @include breakpoint(xl) {
+            height: initial;
+            display: inline-block;
+            line-height: 1.25;
+            border: none;
+            outline: none;
+            padding: 0;
+
+            span {
+              margin-block-start: 3px;
+            }
+
+            >i,
+            >svg {
+              position: static;
+              transform: initial;
+              font-size: 14px;
+              transition: all 0.3s ease-out;
+            }
+          }
+
+          &:hover {
+            color: $secondary-color;
+
+            @include breakpoint(xl) {
+
+              >i,
+              >svg {
+                transform: rotate(180deg);
+              }
+            }
+
+          }
+        }
+
+        >a {
+          color: $title-color; // Mobile: cinza escuro
+          font-weight: 500;
+
+          @include breakpoint(xl) {
+            color: $white-color; // Desktop: branco
+          }
+
+          // i,svg{
+          //   margin-block-start: 2px;
+          // }
+        }
+
+        .submenu {
+          @extend %p-abs;
+          width: 250px;
+          height: auto;
+          border: none;
+          outline: none;
+          z-index: 500;
+          opacity: 0;
+          visibility: hidden;
+          border-radius: 0.25rem;
+          // border-top: 3px solid #B6843D;
+          // border-top: 3px solid $secondary-color;
+          background: $white-color;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          transition: all 0.3s ease-in-out;
+          top: 90px;
+
+          @include breakpoint(max-xl) {
+            display: none;
+            top: 0;
+            left: 0;
+            max-width: none;
+            min-width: auto;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 1rem;
+            padding-top: 4rem;
+            opacity: 1;
+            overflow-y: auto;
+            visibility: visible;
+            -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+            transform: translateX(0%);
+            -webkit-box-shadow: none;
+            box-shadow: none;
+          }
+
+          >ul {
+            >li {
+              @extend %p-rel;
+              &:last-child{
+                a{
+                  border-bottom: none;
+                }
+              }
+
+              a {
+                border-bottom: 1px dashed $border-color;
+                display: block;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.25;
+                padding: .75rem;
+                outline: none;
+                color: $title-color;
+                text-transform: capitalize;
+                text-rendering: optimizeLegibility;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                  color: $secondary-color;
+                }
+
+              }
+
+              &:hover {
+                .submenu-child {
+                  opacity: 1;
+                  visibility: visible;
+                  top: 10px;
+                }
+              }
+            }
+          }
+
+          .submenu-child {
+            @extend %p-abs;
+            left: 250px;
+            top: 20px;
+            width: 250px;
+            height: auto;
+            border: none;
+            outline: none;
+            z-index: 500;
+            opacity: 0;
+            visibility: hidden;
+            border-radius: 0.25rem;
+            // border-top: 3px solid $secondary-color;
+            background: $bg-color;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease-in-out;
+
+            @include breakpoint(max-xl) {
+              position: absolute;
+              display: none;
+              top: 0;
+              left: 0;
+              max-width: none;
+              min-width: auto;
+              width: 100%;
+              height: 100%;
+              margin: 0;
+              padding: 1rem;
+              padding-top: 4rem;
+              opacity: 1;
+              overflow-y: auto;
+              visibility: visible;
+              transform: translateX(0%);
+              box-shadow: none;
+            }
+          }
+
+          &.megamenu {
+            padding: 1.5rem;
+            width: 100%;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+
+            overflow-block: scroll;
+            // max-height: 700px;
+            max-height: calc(100vh - 150px);
+
+            @include breakpoint(xxl) {
+              max-height: calc(100vh - 180px);
+            }
+
+
+            >.list-item {
+              >ul {
+                >li {
+                  display: block;
+                  line-height: 1;
+
+                  a {
+                    display: inline-block;
+                    font-family: inherit;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    line-height: 1.25;
+                    padding: 0.5rem 0;
+                    border: none;
+                    outline: none;
+                    color: $title-color;
+                    text-transform: capitalize;
+                    text-rendering: optimizeLegibility;
+                    transition: color 0.3s ease-in-out;
+                  }
+                }
+              }
+            }
+
+            @include breakpoint(max-xl) {
+              position: absolute;
+              display: none;
+              top: 0;
+              left: 0;
+              max-width: none;
+              min-width: auto;
+              width: 100%;
+              height: 100%;
+              margin: 0;
+              padding: 1rem;
+              padding-top: 4rem;
+              opacity: 1;
+              overflow-y: auto;
+              visibility: visible;
+              transform: translateX(0%);
+              box-shadow: none;
+            }
+
+          }
+
+          &.active {
+            display: block;
+          }
+        }
+
+        &.menu-item-has-children {
+          &:hover {
+            .submenu {
+              opacity: 1;
+              visibility: visible;
+            }
+
+            @include breakpoint(xl) {
+              .submenu {
+                top: 75px;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    .menu-section {
+      background-color: $white-color;
+
+      @include breakpoint(xl) {
+        background-color: transparent;
+      }
+
+      @include breakpoint (max-lg) {
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      &--style-2 {
+        background-color: $bg-dark-color !important;
+
+        @include breakpoint(xl) {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+
+
+  .menu-mobile-trigger {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.25rem;
+    border: none;
+    outline: none;
+    margin-left: 1.25rem;
+    background: none;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.35s ease-in-out;
+    -o-transition: 0.35s ease-in-out;
+    transition: 0.35s ease-in-out;
+
+    span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      left: 0;
+      border: none;
+      outline: none;
+      opacity: 1;
+      border-radius: 0.25rem;
+      background: $white-color; // Barrinhas do menu brancas
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+      overflow: hidden;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 0.5rem;
+      }
+
+      &:nth-child(4) {
+        top: 1rem;
+      }
+    }
+
+    @include breakpoint(xl) {
+      display: none;
+    }
+
+    &--style-2 {
+      span {
+        background-color: $white-color !important;
+      }
+    }
+  }
+
+  .menu-mobile-header {
+    @extend %p-rel,
+    %d-flex,
+    %align-i-center,
+    %justify-between;
+    top: 0;
+    height: 3.125rem;
+    z-index: 501;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: $title-color; // Preto Keepit ao invés de verde
+
+    @include breakpoint(xl) {
+      display: none;
+    }
+
+    &.active {
+      .menu-mobile-arrow {
+        display: block;
+      }
+    }
+
+    .menu-mobile-arrow {
+      display: none;
+      background-color: rgba(255, 255, 255, 0.1); // Fundo transparente ao invés de verde
+      font-size: 1.25rem;
+      line-height: 3.125rem;
+      width: 3.125rem;
+      height: 3.125rem;
+      cursor: pointer;
+      border: none;
+      color: $white-color;
+      text-align: center;
+    }
+
+    .menu-mobile-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $white-color;
+      text-transform: capitalize;
+      text-rendering: optimizeLegibility;
+    }
+
+    .menu-mobile-close {
+      @extend %d-grid,
+      %place-i-center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 3.125rem;
+      height: 3.125rem;
+      background-color: $title-color; // Preto igual ao header
+      border: none;
+      color: $white-color;
+      text-align: center;
+      transition: $transition;
+
+      &:hover {
+        background-color: $secondary-color; // Verde no hover
+        color: $title-color;
+      }
+    }
+  }
+
+
+  &--style-2 {
+    background: $brand-color !important;
+
+    .header {
+      &__action {
+        &-btn {
+          background: rgba(255, 255, 255, 0.04);
+
+          i,
+          svg {
+            color: $white-color;
+          }
+
+          &:hover {
+            background-color: $secondary-color !important;
+            color: $white-color !important;
+
+            i,
+            svg {
+              color: $white-color;
+            }
+          }
+        }
+      }
+    }
+
+    .menu {
+      >ul {
+        >li {
+          a {
+            color: $white-color !important;
+
+            &:hover {
+              color: $secondary-color !important;
+            }
+          }
+        }
+      }
+
+      .submenu {
+        a {
+          color: $title-color !important;
+        }
+      }
+    }
+  }
+
+}
+
+.megamenu {
+  overflow-y: scroll;
+
+  &__wrapper {
+    padding: 30px;
+    background-color: $white-color;
+
+  }
+
+  &__card {
+    background-color: $bg-color;
+    padding: 10px;
+    height: 100%;
+    border-radius: .5rem;
+
+    .megamenu__card {
+      &-inner {
+        background-color: $bg-color;
+        padding: 20px;
+        border-radius: 3px;
+
+      }
+    }
+  }
+
+  &__title {
+    a {
+      font-size: 18px !important;
+      margin-inline: 0;
+    }
+  }
+
+  &__header {
+    border-bottom: 2px solid $border-color;
+    color: $title-color;
+    padding-bottom: 10px;
+    padding-inline: 15px;
+
+    a {
+      border: none !important;
+      padding: 0 !important;
+
+      span {
+        margin-bottom: 5px;
+        margin-inline-start: 0px !important;
+        font-size: 10px;
+        display: block;
+        color: $text-color;
+      }
+
+      color: inherit !important;
+    }
+  }
+
+  &__item-list {
+    a {
+      display: inline-flex !important;
+      padding: 10px !important;
+      font-weight: 400 !important;
+      border: none !important;
+      width: 100%;
+    }
+  }
+}
+
+.trk-search {
+  @extend %p-abs;
+  top: 107px;
+  right: 10px;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-in-out;
+  z-index: 9999;
+  max-width: 340px;
+
+  @include breakpoint(sm) {
+    right: 25px;
+  }
+
+  @include breakpoint(xl) {
+    right: 0;
+  }
+
+  &.active {
+    top: 85px;
+    opacity: 1;
+    visibility: visible;
+
+    @include breakpoint(sm) {
+      right: 25px;
+    }
+
+    @include breakpoint(xl) {
+      right: 0;
+      top: 88px;
+    }
+  }
+
+  &__inner {
+    @extend %p-rel;
+    background-color: $white-color;
+    padding: 1rem;
+    border-radius: .25rem;
+
+    &:after {
+      @extend %p-abs;
+      content: "";
+      right: 45px;
+      top: -12px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-right: 10px solid transparent;
+      border-left: 10px solid transparent;
+      border-bottom: 20px solid $white-color;
+      border-top: 0;
+
+      @include breakpoint(xl) {
+        right: 5px;
+      }
+    }
+  }
+
+  &__btn {
+    background-color: $secondary-color;
+    color: $white-color;
+    padding-inline: 1rem;
+    border: none;
+    outline: none;
+    border-radius: .25rem;
+  }
+
+  &__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the alpha value for the desired transparency */
+    z-index: 999;
+  }
+
+  .form-control {
+    border-radius: .25rem;
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+//  --------------  >>> page header style start here <<< ------------- //
+.page-header {
+  @extend %p-rel,
+  %of-hidden;
+  padding-block: 15px; // Reduzido em 70% (era 50px)
+  background-color: #2A2A2A; // Cinza escuro quase preto
+
+  @include breakpoint(lg) {
+    padding-block: 18px; // Reduzido em 70% (era 60px)
+  }
+
+  &__content {
+    text-align: center;
+
+    h1 {
+      @extend %text-capitalize,
+      %mb-15;
+      color: $white-color;
+      ;
+
+      @include breakpoint(lg) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .breadcrumb-item {
+    @include font-size(16px);
+    color: $brand-color;
+
+    a {
+      color: $white-color;
+    }
+
+
+    &:before {
+      color: $text-color-dark2;
+    }
+
+    &.active,
+    &:hover {
+      color: $text-color-dark2;
+
+    }
+
+  }
+
+
+  &__shape {
+
+    &-item {
+      @extend %p-abs;
+
+      &--1 {
+        display: none;
+        top: 0%;
+        right: 0%;
+
+        @include breakpoint(sm) {
+          top: 0%;
+          right: -3%;
+        }
+
+        @include breakpoint(md) {
+          display: block;
+          top: 0%;
+          right: -3%;
+          width: 500px;
+        }
+
+        @include breakpoint(lg) {
+          top: 0%;
+          right: 0%;
+          width: 650px;
+        }
+
+        @include breakpoint(xl) {
+          width: auto;
+          top: 0%;
+          right: 0%;
+        }
+
+        @include breakpoint(xxl) {
+          top: 0%;
+          right: 0%;
+        }
+
+        @include breakpoint(xxxl) {
+          top: 0%;
+          right: 15%;
+        }
+      }
+    }
+  }
+}
+
+//  --------------  >>> page header style end here <<< ------------- //

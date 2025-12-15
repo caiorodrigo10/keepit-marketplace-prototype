@@ -1,0 +1,243 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+
+//Customizing bootstrap container
+.container {
+  @include breakpoint(xl) {
+    max-width: 1170px;
+  }
+
+  @include breakpoint(xxxl) {
+    max-width: 1280px;
+  }
+}
+
+
+
+
+
+// bootstrap accordion modify
+.accordion-item{
+  border: none;
+  // border-radius: 0px !important;
+  border-radius: 0;
+  background-color: transparent;
+}
+.accordion-body{
+  padding: 0px ;
+  background-color: transparent;
+}
+
+
+
+.mt-minus-5 {
+  margin-block-start: -5px;
+}
+
+.padding-top {
+  padding-block-start: 80px;
+
+  @include breakpoint(lg) {
+    padding-block-start: 100px;
+  }
+}
+
+.padding-top--style2 {
+  padding-block-start: 80px;
+
+  @include breakpoint(lg) {
+    padding-block-start: 40px;
+  }
+}
+
+.padding-bottom {
+  padding-block-end: 80px;
+
+  @include breakpoint(lg) {
+    padding-block-end: 100px;
+  }
+}
+
+.padding-bottom-style2 {
+  padding-block-end: 20px;
+
+  @include breakpoint(lg) {
+    padding-block-end: 80px;
+  }
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $title-color;
+
+  a {
+    color: inherit;
+  }
+}
+
+
+.subtitle {
+  @include font-size(18px);
+  @extend.mb-20;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: $title-color;
+}
+
+.bg--cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.bg--full {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.bg--defult {
+  background-repeat: no-repeat;
+}
+
+.d-block {
+  width: 100%;
+}
+
+.br-16 {
+  border-radius: 16px;
+}
+
+
+/*=========<<Margin & padding property Utilites start>>=========*/
+
+$space-stops: ('10': 10px,
+  '15': 15px,
+  '20': 20px,
+  '25': 25px,
+  '30': 30px,
+  '35': 35px,
+  '40': 40px,
+  '45': 45px,
+  '50': 50px,
+  '55': 55px,
+  '60': 60px,
+  '65': 65px,
+  '70': 70px,
+  '75': 75px,
+  '80': 80px,
+  '85': 85px,
+  '90': 90px,
+  '95': 95px,
+  '100': 100px,
+);
+
+@each $key,
+$val in $space-stops {
+
+  /*-------<< margin properties >>-------*/
+  .m-#{$key} {
+    margin: #{$val} !important;
+  }
+
+  .mt-#{$key} {
+    margin-block-start: #{$val} !important;
+  }
+
+  .mb-#{$key} {
+    margin-block-end: #{$val} !important;
+  }
+
+  .ms-#{$key} {
+    margin-inline-start: #{$val} !important;
+  }
+
+  .me-#{$key} {
+    margin-inline-end: #{$val} !important;
+  }
+
+  .my-#{$key} {
+    margin-block: #{$val} !important;
+  }
+
+  .mx-#{$key} {
+    margin-inline: #{$val} !important;
+  }
+}
+
+
+/*------<< Paddings >>---------*/
+@each $key,
+$val in $space-stops {
+
+  .p-#{$key} {
+    padding: #{$val} !important;
+  }
+
+  .pt-#{$key} {
+    padding-block-start: #{$val} !important;
+  }
+
+  .pb-#{$key} {
+    padding-block-end: #{$val} !important;
+  }
+
+  .ps-#{$key} {
+    padding-inline-start: #{$val} !important;
+  }
+
+  .pe-#{$key} {
+    padding-inline-end: #{$val} !important;
+  }
+
+  .py-#{$key} {
+    padding-block: #{$val} !important;
+  }
+
+  .px-#{$key} {
+    padding-inline: #{$val} !important;
+  }
+}
+
+/*=========<<Margin property Utilities end>>=========*/
+
+
+/*=========<<Responsive Display Utilities>>=========*/
+// Desktop-only display utilities (show only on xl and above)
+.d-none {
+  display: none;
+}
+
+.d-xl-grid {
+  display: none;
+
+  @include breakpoint(xl) {
+    display: grid;
+  }
+}
+
+.d-xl-none {
+  display: block;
+
+  @include breakpoint(xl) {
+    display: none;
+  }
+}
+
+.d-xl-block {
+  display: none;
+
+  @include breakpoint(xl) {
+    display: block;
+  }
+}
+
+/*=========<<Responsive Display Utilities end>>=========*/

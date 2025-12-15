@@ -1,0 +1,341 @@
+.account {
+  @extend %of-hidden,
+  %p-rel;
+
+  &__wrapper {
+    @extend %p-rel;
+    z-index: 2;
+  }
+
+
+  &__content {
+    &--style1 {
+      @extend %p-20;
+      max-inline-size: 800px;
+      margin-inline: auto;
+      background-color: $bg-color;
+      border-radius: 24px;
+
+      @include breakpoint(sm) {
+        padding: 32px;
+      }
+
+      @include breakpoint(lg) {
+        padding: 56px 48px;
+      }
+    }
+
+    &--style2 {
+      @extend %p-30;
+      max-inline-size: 800px;
+      margin-inline: auto;
+      background-color: $bg-color;
+      border-radius: 4px;
+
+      @include breakpoint(sm) {
+        padding: 50px;
+      }
+
+      @include breakpoint(md) {
+        padding: 60px;
+      }
+
+      @include breakpoint(lg) {
+        padding: 25px 30px;
+      }
+    }
+  }
+
+
+
+  &__inner {
+    background-color: $bg-color;
+    border-radius: 4px;
+    box-shadow: 0px -16px 48px rgba(6, 35, 63, 0.03), 0px 16px 48px rgba(6, 35, 63, 0.03);
+  }
+
+  &__header {
+    @extend %mb-40;
+
+    @include breakpoint(md) {
+      margin-block-end: 50px;
+    }
+
+    h2 {
+      @extend %mb-10;
+    }
+
+    p {
+      @include font-size(16px);
+    }
+  }
+
+  &__check {
+    @extend %d-flex,
+    %align-i-center,
+    %justify-between,
+    %mb-35,
+    %mt-15;
+
+    &-remember {
+
+      input {
+        width: 1.2em;
+        height: 1.2em;
+        margin-inline-end: 3px;
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        &:checked {
+          background-color: $secondary-color;
+          border-color: $secondary-color;
+        }
+      }
+
+      label {
+        @extend %text-regular;
+        @include font-size(16px);
+        color: $title-color;
+      }
+    }
+
+    &-forgot {
+      a {
+        @extend %text-medium,
+        %text-capitalize;
+        @include font-size(16px);
+        color: $brand-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+  &__social {
+
+    &-btn {
+      @include add-prefix(transition, $transition);
+      @extend %w-100,
+      %justify-center;
+      @extend %text-regular;
+      @include font-size(16px);
+      display: inline-flex;
+      background-color: $white-color;
+      color: $title-color;
+      padding: 16px 24px;
+      border: 1px solid $border-color;
+      border-radius: .5rem;
+
+      @include breakpoint(xl) {
+        padding: 0.8rem 2.25rem;
+      }
+
+      span {
+        @extend %me-10,
+        %d-inline-block;
+      }
+
+      &:hover {
+        border-color: $brand-color;
+      }
+    }
+  }
+
+  &__divider {
+
+    &--style1 {
+      @extend %p-rel,
+      %mt-35,
+      %pb-35;
+
+      span {
+        @extend %p-abs,
+        %text-semibold;
+        @include font-size(18px);
+        color: $title-color;
+        padding: 20px;
+        top: -35px;
+        left: 45%;
+        background: $bg-color;
+
+
+      }
+
+      &:before {
+        @extend %p-abs;
+        content: "";
+        height: 1px;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background-color: $border-color;
+      }
+    }
+
+    &--style2 {
+      @extend %my-30;
+
+      span {
+        color: $text-color;
+
+      }
+    }
+  }
+
+  //toggle between signin and signup page
+  &__switch {
+    @extend %text-center,
+    %mt-30;
+
+    p {
+      @extend %mb-0,
+      %text-regular;
+      @include font-size(16px);
+
+      i,
+      svg {
+        @extend %me-5;
+        @include add-prefix(transition, $transition);
+      }
+
+      a {
+        @extend %text-regular;
+        color: $secondary-color;
+        text-decoration: underline;
+
+        &.style2 {
+          @extend %text-regular;
+          @include font-size(16px);
+          color: $text-color;
+        }
+      }
+
+    }
+
+    a {
+      @extend %ms-5,
+      %d-inline-block,
+      %text-bold;
+      @include font-size(18px);
+
+      span {
+        color: $secondary-color;
+        text-decoration: underline;
+      }
+    }
+
+    &:hover {
+      p {
+
+        i,
+        svg {
+          @extend %me-10;
+        }
+      }
+    }
+  }
+
+
+  &-pill {
+    &__wrapper {
+      max-width: 600px;
+      background-color: $bg-color;
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      margin-inline: auto;
+
+      @include breakpoint(md) {
+        padding: 3.5rem 3rem;
+      }
+
+      @include breakpoint(xxl) {
+        padding: 4.5rem 3rem;
+      }
+    }
+
+    &__filter {
+      @extend %mb-45;
+      border-bottom: 1px solid $border-color;
+
+      .nav-pills {
+        gap: 16px;
+        --bs-nav-pills-link-active-bg: transparent;
+
+        @include breakpoint(lg) {
+          gap: 60px;
+        }
+
+        .nav-link {
+          color: $text-color;
+          font-family: $title-font;
+          font-size: $fs-h3;
+          font-weight: 700;
+
+          &.active {
+            color: $secondary-color;
+            border-radius: 0;
+            border-bottom: 2px solid $secondary-color;
+          }
+        }
+      }
+    }
+  }
+
+  &-switch {
+    color: $title-color;
+
+    a {
+      color: $brand-color;
+      text-decoration: underline;
+    }
+  }
+
+  //  shape
+  &__shape {
+    &-item {
+      @extend %p-abs;
+
+      &--1 {
+        width: 30px;
+        top: 9%;
+        left: 77%;
+        z-index: 2;
+        @include animation(left-right 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+        @include breakpoint(sm) {
+          width: 55px;
+          top: 11%;
+          left: 66%;
+        }
+
+        @include breakpoint(md) {
+          max-width: 75px;
+          top: 11%;
+          left: 56%;
+        }
+
+        @include breakpoint(lg) {
+          max-width: 100%;
+          top: 13%;
+          left: 20%;
+        }
+
+        @include breakpoint(xl) {
+          top: 9%;
+          left: 8%;
+        }
+
+        @include breakpoint(xxl) {
+          top: 9%;
+          left: 12%;
+        }
+
+        @include breakpoint(xxxl) {
+          left: 22%;
+        }
+      }
+    }
+  }
+}

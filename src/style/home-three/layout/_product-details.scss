@@ -1,0 +1,446 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+@import '../abstracts/extends';
+
+.product-details {
+  @extend %of-hidden;
+
+  .sidebar-widget {
+    .widget-search {
+      border: none;
+
+      form {
+        input {
+          background: $white-color;
+          border: 1px solid $border-color;
+        }
+      }
+    }
+  }
+
+
+  &__pill {
+    .nav {
+      border-bottom: 1px solid $border-color !important;
+      gap: 1.5rem;
+
+      @include breakpoint(lg) {
+        gap: 3rem;
+      }
+
+
+      &-link {
+        color: $title-color;
+        border-radius: 0;
+        transition: $transition;
+
+        &.active {
+          background-color: transparent;
+          border-radius: 0;
+          color: $secondary-color;
+          border-bottom: 2px solid $secondary-color;
+        }
+      }
+    }
+
+  }
+
+
+  &__review {
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+
+    @include breakpoint(xl) {
+      margin-top: 3rem;
+    }
+
+
+    @include breakpoint(lg) {
+      padding: 60px;
+    }
+
+    &-title {
+      border-bottom: 2px solid $border-color-2;
+      margin-bottom: 2rem;
+    }
+
+    &-card {
+      @extend %d-flex,
+      %justify-between,
+      %align-i-center;
+      background-color: $white-color;
+      border-radius: 12px;
+      padding: 1rem;
+
+      @include breakpoint(lg) {
+        padding: 2rem;
+      }
+
+      &:not(last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &-author {
+      @extend %d-flex;
+      gap: 1rem;
+    }
+
+    &-name {
+      align-content: center;
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    &-content {
+      max-width: 700px;
+      border-left: 2px solid $border-color-2;
+      padding-left: 2rem;
+
+      @include breakpoint(xl) {
+        padding-left: 56px;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .rating {
+        margin-bottom: 10px;
+        color: $yellow-color;
+
+        span {
+          color: $bg-color-4;
+        }
+      }
+
+    }
+
+    &--add {
+      .product-details__review {
+
+
+        &-form {
+          .rating {
+            @extend %d-flex,
+            %align-i-center;
+            gap: 2px;
+            margin-bottom: 1.75rem;
+
+            h4 {
+              @extend %mb-0,
+              %me-20;
+            }
+
+            i,
+            svg {
+              color: $text-color;
+              transition: $transition;
+
+              &:hover {
+                color: $yellow-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .product-details {
+    @extend %p-20,
+    %mb-40,
+    %of-hidden;
+    // box-shadow: $shadow-sm;
+    border-radius: .5rem;
+
+    .product-thumb {
+      @extend %p-rel;
+
+      .pro-single-top {
+        @extend %mb-20;
+
+        .single-thumb {
+          @extend %of-hidden;
+          border-radius: 6px;
+
+          img {
+            @extend %w-100;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .pro-single-thumbs {
+
+
+        .single-thumb {
+          @extend %of-hidden;
+          border: 2px solid transparent;
+          border-radius: 6px;
+
+          img {
+            @extend %w-100,
+            %c-pointer;
+          }
+        }
+
+        .swiper-slide-thumb-active {
+          .single-thumb {
+            border-color: $brand-color;
+          }
+        }
+      }
+
+
+
+      .pro-single-prev,
+      .pro-single-next {
+        @extend %p-abs,
+        %c-pointer;
+        font-size: 16px;
+        @include add-prefix(transition, $transition);
+        @include add-prefix(transform, translateY(-50%));
+        // @include bg-blur(20px, rgba($brand-color, $alpha:.5));
+        display: grid;
+        place-items: center;
+        width: 35px;
+        height: 50px;
+        background-color: transparent;
+        color: $title-color;
+        top: 50%;
+        outline: none;
+        z-index: 1;
+        border-radius: .3rem;
+        border: 1px solid $brand-color;
+
+        &:hover {
+          background-color: $brand-color;
+        }
+      }
+
+      .pro-single-prev {
+        right: 0;
+        border-radius: 16px 0 0 16px;
+        border-right: none;
+        color: $white-color;
+        transition: $transition;
+        background-color: rgba(#145961, .6);
+      }
+
+      .pro-single-next {
+        left: 0;
+        border-radius: 0 16px 16px 0;
+        border-left: none;
+        color: $white-color;
+        transition: $transition;
+        background-color: rgba(#145961, .6);
+      }
+    }
+
+
+    .post-content {
+      @extend %pt-30;
+
+      @include breakpoint(md) {
+        padding-top: 0;
+      }
+
+      &__price {
+        @extend %d-flex,
+        %align-i-center;
+        gap: 10px;
+        padding-block: 1.5rem;
+
+        h2 {
+          @extend %mb-0;
+        }
+
+        span {
+          color: $secondary-color;
+        }
+      }
+
+      &__brand {
+        margin-bottom: 24px;
+
+        span {
+          color: $brand-color;
+        }
+      }
+
+      &__list {
+        padding-block: 32px;
+        border-top: 1px solid $border-color-thin;
+        color: $title-color;
+        li{
+          display: flex;
+          gap: .5rem;
+          align-items: start;
+          flex-wrap: wrap;
+          line-height: 1.5;
+          svg,i{
+            font-size: 1rem;
+            color:$secondary-color ;
+          }
+          p{
+            flex: 1;
+            margin-bottom: 0;
+          }
+        }
+        li:not(last-child) {
+          margin-bottom: .75rem;
+        }
+      }
+
+      .product-details__fav-btn {
+        @extend %d-grid,
+        %place-i-center;
+        background-color: $bg-color;
+        border-radius: 5px;
+        @include box(52px);
+        transition: $transition;
+
+        i,
+        svg {
+          color: $title-color;
+          transition: $transition;
+        }
+
+        &:hover {
+          background-color: $secondary-color;
+
+          i,
+          svg {
+            color: $white-color;
+          }
+        }
+      }
+
+      &__social {
+        @extend %d-flex,
+        %place-i-center,
+        %mt-40;
+        gap: 1rem;
+
+        h4 {
+          margin-bottom: 0;
+          color: $title-color; // Preto/cinza escuro
+          font-weight: 400; // Peso mais leve (normal ao invés de bold)
+          font-size: 0.95rem; // Fonte menor (era ~1.2rem por padrão)
+        }
+
+        .social {
+          gap: 10px !important;
+        }
+      }
+
+      h4 {
+        @extend %mb-20;
+        color: $brand-color;
+      }
+
+      h6 {
+        @extend %mb-0;
+        font-size: 18px;
+      }
+
+      p {
+        margin-bottom: 10px;
+
+        &.rating {
+          display: flex !important;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 0.5rem;
+
+          i,
+          svg {
+            color: $yellow-color;
+          }
+        }
+      }
+
+      form {
+        @extend %mt-25;
+
+        .form-control,
+        .form-select {
+          @include add-prefix(transition, $transition);
+          box-shadow: none;
+          padding: .75rem 1rem;
+          border-color: rgba($brand-color, $alpha: .3);
+
+          &:hover,
+          &:focus {
+            border-color: $brand-color;
+          }
+        }
+
+        .form-select {
+          @extend %c-pointer;
+        }
+
+        .cart-plus-minus {
+          margin-bottom: 20px;
+
+          @include breakpoint(sm) {
+            margin: 0;
+          }
+        }
+
+        .default-btn {
+          margin-top: 1.5rem;
+          box-shadow: none;
+          outline: none;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+
+
+  }
+
+}
+
+
+
+//kart button styl
+
+.cart-plus-minus {
+  @extend %of-hidden;
+  border-radius: 5px;
+  max-width: 150px;
+
+  .form-control {
+    @extend %text-center;
+    border: none;
+  }
+
+  .qtybutton {
+    @extend %c-pointer;
+    font-size: 16px;
+    @include add-prefix(transition, $transition);
+    display: inline-grid;
+    place-items: center;
+    font-weight: 700;
+    padding-inline: 1rem;
+
+    background-color: $bg-color;
+    color: $title-color;
+    border: none;
+
+    &:hover {
+      background: $secondary-color;
+      color: $white-color;
+    }
+  }
+}

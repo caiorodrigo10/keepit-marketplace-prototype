@@ -1,0 +1,54 @@
+.social {
+  @extend %d-flex;
+  @extend %align-i-center;
+  @extend %list-none;
+  @extend %ps-0;
+  @extend %mb-0;
+  gap: 10px;
+
+  @include breakpoint(md) {
+    gap: 15px;
+  }
+
+
+
+  &__link {
+    @extend %d-grid,
+    %place-i-center,
+    %text-center;
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+    background: $white-color; // Fundo branco
+    border: 1px solid rgba(255, 255, 255, 0.2); // Borda clara para fundo escuro
+    transition: $transition;
+    @include add-prefix(transition, all .2s linear);
+    @include font-size(18px);
+
+    svg,
+    i {
+      color: #1E1E1E !important; // Ícones escuros no fundo branco
+      transition: $transition;
+    }
+
+    &:hover {
+      background-color: #67FB94; // Verde Keepit no hover
+      border-color: #67FB94;
+
+      svg,
+      i {
+        color: #1E1E1E !important; // Escuro no hover
+      }
+    }
+
+    &--style2 {
+      background: $white-color; // Fundo branco para style2
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    &--style3 {
+      background-color: rgba(196, 243, 182, 0.5);
+    }
+  }
+
+}

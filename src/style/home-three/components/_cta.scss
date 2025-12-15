@@ -1,0 +1,102 @@
+.newsletter {
+
+  &__wrapper {
+    display: flex;
+    background-image: url(/images/cta/bg-shape.png);
+    background-size: cover;
+    background-color: $brand-color;
+    border-radius: 16px;
+    overflow: hidden;
+
+    @include breakpoint(xl) {
+      border-radius: 24px;
+    }
+  }
+
+
+  &__content {
+    flex: 1;
+    padding-block: 32px;
+    padding-inline: 24px;
+    max-width: 53ch;
+
+    @include breakpoint(sm) {
+      padding-block: 60px;
+      padding-inline: 32px;
+    }
+
+    @include breakpoint(md) {
+      padding-left: 40px;
+    }
+
+    @include breakpoint(lg) {
+      padding-block: 75px;
+      padding-left: 80px;
+      max-width: 56ch;
+    }
+  }
+
+  &__title {
+    color: $title-color-dark;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    margin-bottom: 28px;
+    color: $text-color-dark;
+  }
+
+  &__form {
+    @extend %d-flex,
+    %of-hidden;
+    padding: 4px;
+    background-color: $white-color;
+    border-radius: 12px;
+
+    .trk-btn {
+      &:hover {
+        transform: none;
+        background-color: $brand-color;
+      }
+    }
+  }
+
+  &__input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px 0 0 12px;
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+
+  &__image {
+    display: none;
+    flex: 1;
+    background-image: url('/images/cta/1.png');
+    background-size: cover;
+    background-position: end;
+
+    @include breakpoint(md) {
+      display: block;
+      background-position: calc(15%);
+    }
+
+    @include breakpoint(xl) {
+      background-position: center;
+    }
+  }
+
+}

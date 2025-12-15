@@ -1,0 +1,427 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "name": "Keepit Brasil Design System",
+  "version": "1.0.0",
+  "description": "Design System completo para a aplicação Keepit Brasil - Marketplace com lockers inteligentes",
+
+  "colors": {
+    "primary": {
+      "brand": {
+        "value": "#34BF58",
+        "name": "Verde Keepit Primary",
+        "usage": "Cor principal da marca, usada em CTAs principais, links importantes"
+      },
+      "secondary": {
+        "value": "#67FB94",
+        "name": "Verde Keepit Light",
+        "usage": "Destaques, hovers, elementos secundários, botão 'Confirmar localização'"
+      }
+    },
+
+    "backgrounds": {
+      "body": {
+        "value": "#FFFFFF",
+        "name": "Branco",
+        "usage": "Background principal do corpo da página"
+      },
+      "bg": {
+        "value": "#F1F1F1",
+        "name": "Cinza Claro Keepit",
+        "usage": "Backgrounds de seções alternativas"
+      },
+      "bg2": {
+        "value": "#E8F9ED",
+        "name": "Verde muito claro",
+        "usage": "Backgrounds de elementos com tema verde suave"
+      },
+      "bg3": {
+        "value": "#D1F4DC",
+        "name": "Verde claro suave",
+        "usage": "Backgrounds de cards ou seções destacadas"
+      },
+      "bg4": {
+        "value": "#E0E0E0",
+        "name": "Cinza médio",
+        "usage": "Backgrounds de elementos desabilitados"
+      },
+      "bgDark": {
+        "value": "#1E1E1E",
+        "name": "Preto Keepit",
+        "usage": "Header, footer, seções escuras, hero banner"
+      },
+      "benefitsBar": {
+        "value": "#f8f9fa",
+        "name": "Cinza muito claro",
+        "usage": "Background da barra de benefícios (Frete grátis, etc)"
+      }
+    },
+
+    "typography": {
+      "title": {
+        "value": "#1E1E1E",
+        "name": "Preto Keepit",
+        "usage": "Títulos principais em fundos claros"
+      },
+      "titleDark": {
+        "value": "#FFFFFF",
+        "name": "Branco",
+        "usage": "Títulos em fundos escuros"
+      },
+      "text": {
+        "value": "#4A4A4A",
+        "name": "Cinza escuro",
+        "usage": "Texto de corpo, parágrafos, descrições"
+      },
+      "textDark": {
+        "value": "#F1F1F1",
+        "name": "Cinza claro",
+        "usage": "Texto em fundos escuros"
+      },
+      "textDark2": {
+        "value": "#9E9E9E",
+        "name": "Cinza médio",
+        "usage": "Texto secundário em fundos escuros, placeholders"
+      }
+    },
+
+    "borders": {
+      "primary": {
+        "value": "#67FB94",
+        "name": "Verde claro Keepit",
+        "usage": "Bordas de inputs em foco, elementos destacados"
+      },
+      "thin": {
+        "value": "#E8F9ED",
+        "name": "Verde muito claro",
+        "usage": "Bordas sutis com tema verde"
+      },
+      "border1": {
+        "value": "#E0E0E0",
+        "name": "Cinza",
+        "usage": "Bordas padrão de cards e elementos"
+      },
+      "border2": {
+        "value": "#F1F1F1",
+        "name": "Cinza claro",
+        "usage": "Bordas muito sutis"
+      }
+    },
+
+    "feedback": {
+      "warning": {
+        "value": "#F59E0B",
+        "name": "Amarelo Warning",
+        "usage": "Alertas, avisos"
+      },
+      "warningLight": {
+        "value": "#FEF3C7",
+        "name": "Amarelo claro",
+        "usage": "Background de avisos"
+      },
+      "danger": {
+        "value": "#EF4444",
+        "name": "Vermelho Error",
+        "usage": "Erros, validações falhas"
+      },
+      "dangerLight": {
+        "value": "#FEE2E2",
+        "name": "Rosa claro",
+        "usage": "Background de erros"
+      }
+    },
+
+    "neutral": {
+      "white": {
+        "value": "#FFFFFF",
+        "name": "Branco",
+        "usage": "Backgrounds de cards, modais, elementos destacados"
+      },
+      "black": {
+        "value": "#1E1E1E",
+        "name": "Preto Keepit",
+        "usage": "Textos principais, backgrounds escuros"
+      },
+      "gray": {
+        "value": "#9E9E9E",
+        "name": "Cinza",
+        "usage": "Texto secundário, ícones desabilitados"
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "primary": "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      "headings": "'Titillium Web', Montserrat, -apple-system, BlinkMacSystemFont, sans-serif",
+      "usage": {
+        "primary": "Fonte principal para corpo de texto",
+        "headings": "Fonte exclusiva para títulos h1 e h2"
+      }
+    },
+
+    "fontSize": {
+      "base": "16px",
+      "small": "14px",
+      "big": "18px",
+      "h1": "48px",
+      "h2": "32px",
+      "h3": "24px",
+      "h4": "20px",
+      "h5": "18px",
+      "h6": "16px"
+    },
+
+    "responsive": {
+      "hero": {
+        "h1": {
+          "mobile": "2rem",
+          "tablet": "2.5rem",
+          "desktop": "3rem"
+        },
+        "description": {
+          "mobile": "1.125rem",
+          "desktop": "1.25rem"
+        }
+      },
+      "navbar": {
+        "link": "0.875rem"
+      }
+    }
+  },
+
+  "spacing": {
+    "navbar": {
+      "paddingBlock": {
+        "mobile": "0.35rem",
+        "tablet": "0.6rem",
+        "desktop": "0.75rem"
+      }
+    },
+
+    "hero": {
+      "paddingBlock": {
+        "mobile": "100px",
+        "tablet": "120px",
+        "desktop": "140px"
+      }
+    },
+
+    "benefitsBar": {
+      "padding": {
+        "mobile": "1.5rem",
+        "tablet": "1.75rem 2rem",
+        "desktop": "2rem 2.5rem"
+      },
+      "marginBottom": {
+        "mobile": "3rem",
+        "tablet": "3.5rem",
+        "desktop": "4rem"
+      }
+    },
+
+    "section": {
+      "paddingBlock": {
+        "mobile": "3rem",
+        "tablet": "4rem",
+        "desktop": "5rem"
+      }
+    }
+  },
+
+  "components": {
+    "button": {
+      "primary": {
+        "background": "#67FB94",
+        "color": "#1E1E1E",
+        "borderRadius": "8px",
+        "padding": "12px 24px",
+        "fontSize": "14px",
+        "fontWeight": "600",
+        "hover": {
+          "background": "#2da84c",
+          "transform": "translateY(-1px)",
+          "boxShadow": "0 4px 8px rgba(52, 191, 88, 0.3)"
+        }
+      },
+
+      "secondary": {
+        "background": "transparent",
+        "color": "#67FB94",
+        "border": "1px solid #67FB94",
+        "borderRadius": "8px",
+        "padding": "12px 24px"
+      }
+    },
+
+    "input": {
+      "default": {
+        "background": "#ffffff",
+        "border": "1px solid #ddd",
+        "borderRadius": "8px",
+        "padding": "0.75rem 1rem",
+        "fontSize": "0.875rem",
+        "focus": {
+          "borderColor": "#67FB94",
+          "boxShadow": "0 0 0 3px rgba(103, 251, 148, 0.1)"
+        }
+      }
+    },
+
+    "card": {
+      "default": {
+        "background": "#FFFFFF",
+        "borderRadius": "1rem",
+        "boxShadow": "0 2px 8px rgba(0, 0, 0, 0.08)",
+        "hover": {
+          "transform": "translateY(-8px)",
+          "boxShadow": "0 12px 24px rgba(0, 0, 0, 0.15)"
+        }
+      },
+
+      "category": {
+        "imageAspectRatio": "85%",
+        "padding": "0.75rem 0.875rem"
+      }
+    },
+
+    "modal": {
+      "background": "#FFFFFF",
+      "borderRadius": "16px",
+      "maxWidth": "540px",
+      "boxShadow": "0 10px 40px rgba(0, 0, 0, 0.2)",
+      "overlay": {
+        "background": "rgba(0, 0, 0, 0.5)"
+      }
+    },
+
+    "navbar": {
+      "background": "#1E1E1E",
+      "color": "#FFFFFF",
+      "height": {
+        "mobile": "auto",
+        "desktop": "auto"
+      },
+      "logo": {
+        "height": "35px"
+      },
+      "icons": {
+        "size": "38px",
+        "fontSize": "1rem",
+        "background": "rgba(255, 255, 255, 0.1)",
+        "borderRadius": "50%"
+      },
+      "boxShadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+    },
+
+    "searchBar": {
+      "background": "#FFFFFF",
+      "borderRadius": "8px",
+      "padding": "8px 8px 8px 20px",
+      "boxShadow": "0 4px 12px rgba(0, 0, 0, 0.15)",
+      "icon": {
+        "color": "#67FB94",
+        "fontSize": "20px"
+      },
+      "button": {
+        "background": "#67FB94",
+        "color": "#1E1E1E",
+        "borderRadius": "4px",
+        "padding": "12px 24px"
+      }
+    },
+
+    "benefitIcon": {
+      "size": {
+        "mobile": "44px",
+        "tablet": "56px",
+        "desktop": "64px"
+      },
+      "background": "#67FB94",
+      "borderRadius": "0.75rem",
+      "color": "#FFFFFF"
+    },
+
+    "locker": {
+      "infoWindow": {
+        "minWidth": "240px",
+        "maxWidth": "260px",
+        "padding": "0.875rem",
+        "borderRadius": "12px",
+        "boxShadow": "0 4px 16px rgba(0, 0, 0, 0.15)"
+      },
+      "marker": {
+        "available": "#67FB94",
+        "unavailable": "#9E9E9E"
+      }
+    },
+
+    "dropdown": {
+      "background": "#FFFFFF",
+      "borderRadius": "8px",
+      "boxShadow": "0 4px 12px rgba(0, 0, 0, 0.15)",
+      "maxHeight": "400px",
+      "zIndex": "10000"
+    }
+  },
+
+  "shadows": {
+    "sm": "0 2px 8px rgba(0, 0, 0, 0.08)",
+    "md": "0 4px 12px rgba(0, 0, 0, 0.15)",
+    "lg": "0 12px 24px rgba(0, 0, 0, 0.15)",
+    "xl": "0 10px 40px rgba(0, 0, 0, 0.2)",
+    "navbar": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+  },
+
+  "borderRadius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "full": "50%",
+    "card": "1rem",
+    "button": "8px"
+  },
+
+  "transitions": {
+    "default": "all 0.3s ease-out",
+    "fast": "all 0.2s ease",
+    "slow": "all 0.4s ease"
+  },
+
+  "zIndex": {
+    "dropdown": "10000",
+    "modal": "9999",
+    "overlay": "9998",
+    "navbar": "999",
+    "sticky": "100"
+  },
+
+  "breakpoints": {
+    "sm": "576px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1200px",
+    "xxl": "1400px",
+    "xxxl": "1600px"
+  },
+
+  "usage": {
+    "notes": [
+      "Este Design System é baseado na análise completa da aplicação Keepit Brasil",
+      "Todas as cores, tipografia e componentes foram extraídos do código atual",
+      "Use este arquivo como referência ao criar novos componentes de UI",
+      "Mantenha consistência com os padrões estabelecidos",
+      "O verde #67FB94 (secondary) é a cor principal de destaque para CTAs e elementos interativos",
+      "O preto #1E1E1E é usado para headers, footers e textos principais",
+      "Montserrat é a fonte exclusiva do projeto"
+    ],
+
+    "examples": {
+      "primaryButton": "background: #67FB94, color: #1E1E1E, hover com transform e shadow",
+      "heroTitle": "font-size responsivo (2rem mobile, 3rem desktop), color: #FFFFFF em fundo escuro",
+      "inputFocus": "border-color: #67FB94 com box-shadow verde suave",
+      "cardHover": "transform: translateY(-8px) com shadow aumentado",
+      "navbarDark": "background: #1E1E1E, ícones brancos, logo 35px"
+    }
+  }
+}

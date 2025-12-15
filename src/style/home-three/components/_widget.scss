@@ -1,0 +1,88 @@
+.widget {
+    @extend %p-rel,
+    %of-hidden;
+
+
+
+    &__item {
+        &-inner {
+            @extend %p-rel;
+            background-color: $bg-color;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        &-title {
+            @extend %d-flex,
+            %justify-between;
+            border-bottom: 1px solid $border-color;
+            margin-bottom: 24px;
+
+        }
+
+        &-list {
+            list-style-type: none;
+            padding-left: 0;
+
+            li{
+                @extend %d-flex;
+                margin-bottom: 5px;
+            }
+        }
+    
+
+
+        
+
+    }
+
+
+
+
+    // shape
+    &__shape {
+
+        &-item {
+            @extend %p-abs;
+
+            &--1 {
+                width: 40px;
+                top: 1%;
+                left: 6%;
+                @include animation(floating 3s cubic-bezier(0.41, 0.15, 0.64, 0.86) infinite alternate);
+
+                @include breakpoint(sm) {
+                    top: 3%;
+                    left: 7%;
+                }
+
+                @include breakpoint(md) {
+                    width: auto;
+                    top: 2%;
+                    left: 1%;
+                }
+
+                @include breakpoint(lg) {
+                    left: 4%;
+                    top: 4%;
+                }
+
+                @include breakpoint(xl) {
+                    top: 5%;
+                    left: 5%;
+                }
+
+                @include breakpoint(xxl) {
+                    top: 8%;
+                    left: 5%;
+                }
+            }
+
+
+            
+
+        }
+
+    }
+
+}

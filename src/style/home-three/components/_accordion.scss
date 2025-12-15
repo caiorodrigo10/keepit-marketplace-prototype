@@ -1,0 +1,182 @@
+.accordion {
+  &-button {
+    // bootstrap overwrite
+    padding: 0px;
+
+    &:not(.collapesd) {
+      box-shadow: none;
+
+      &::after {
+        background-image: none;
+      }
+    }
+
+
+    &::after {
+      @extend %d-grid, %place-i-center;
+      content: "\f078";
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      color: $white-color;
+      margin-inline: auto;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 600;
+      background-position: center;
+      background-size: 18px;
+      background-color: $secondary-color;
+      background-image: none;
+      transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, ;
+    }
+
+
+    // When the button is clicked or has the `collapsed` class, change the background and color
+    &.collapsed::after {
+      background-color: $bg-color;
+      color: $title-color;
+    }
+  }
+
+  &__item {
+    @extend %of-hidden;
+  }
+
+  &__button {
+    @extend %w-100,
+    %text-semibold,
+    %text-capitalize;
+    @extend %text-start;
+    @extend %d-flex;
+    @extend %justify-between;
+    @include font-size(20px);
+    color: $brand-color;
+    font-family: $title-font;
+    border: none;
+
+    &-content {
+      flex: 1;
+    }
+
+    &.collapsed {
+      color: $title-color;
+
+      .accordion__button {
+        &-plusicon {
+          border: 1.5px solid $border-color;
+
+          &::before {
+            background-color: $title-color;
+          }
+
+          &::after {
+            @include add-prefix(transform, translateY(-50%));
+            content: "";
+            height: 14px;
+            width: 2px;
+            top: 50%;
+            left: 11px;
+            background-color: $white-color;
+          }
+        }
+      }
+    }
+  }
+
+
+  &--style1 {
+    [class^="col"] {
+      &:not(:last-child) {
+        .accordion__item {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+
+    .accordion {
+      &__item {
+        border-radius: 0 !important;
+      }
+
+      &__button {
+        @extend %py-20;
+        background-color: $bg-color-3;
+
+        // modify bootstrap
+        color: $title-color;
+
+        &:not(.collapsed) {
+          color: $brand-color;
+          padding-block-end: 8px;
+        }
+
+        &--style2 {
+          background-color: $white-color;
+        }
+      }
+
+      &__header {
+        border-bottom: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  &--style2 {
+    .accordion {
+      &__item {
+        border-radius: 12px;
+        background-color: $white-color;
+        box-shadow: 0px 4px 8px 0px rgba(6, 35, 63, 0.03), 0px -16px 48px 0px rgba(6, 35, 63, 0.03);
+
+
+
+        @include breakpoint(sm) {
+          margin-block-end: 5px;
+        }
+
+        @include breakpoint(xl) {
+          margin-block-end: 10px;
+        }
+      }
+
+      &__button {
+        @extend %p-25;
+        background-color: $white-color;
+        color: $secondary-color;
+
+        &.collapsed {
+          color: $title-color;
+        }
+
+        &:not(.collapsed) {
+          padding-block-end: 8px;
+        }
+
+        &-plusicon {
+          border: 1.5px solid $secondary-color;
+
+          &::before {
+            @include add-prefix(transform, translateY(-50%));
+            content: "";
+            width: 14px;
+            height: 2px;
+            top: 50%;
+            left: 5px;
+            background-color: $secondary-color;
+          }
+        }
+      }
+
+      &__body {
+        @extend %px-25,
+        %pb-25;
+        background-color: $white-color;
+      }
+    }
+  }
+
+}

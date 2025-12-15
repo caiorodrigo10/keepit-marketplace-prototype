@@ -1,0 +1,420 @@
+.product {
+    @extend %of-hidden;
+    &__item {
+        @extend %p-rel;
+        transition: $transition;
+
+        &-inner {
+            @extend %of-hidden;
+            background-color: $white-color;
+            transition: $transition;
+        }
+
+        &-thumb {
+            @extend %of-hidden;
+
+            img {
+                transition: $transition;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &-content {
+            h4 {
+                @extend %text-clamp-2;
+            }
+
+            h5 {
+                @extend %text-clamp-1;
+            }
+        }
+
+
+        &-rating {
+
+            i,
+            svg {
+                color: $yellow-color;
+            }
+
+            color: $title-color;
+
+            span {
+                color: $text-color;
+            }
+        }
+
+        &-badge {
+            @extend %p-abs;
+            background-color: $yellow-color;
+            border-radius: 4px;
+            font-size: $fs-small;
+            color: $title-color;
+            padding: 1px 10px;
+            top: 16px;
+            left: 16px;
+            z-index: 99;
+
+            &--new {
+                background-color: $bg-dark-color;
+                color: $white-color;
+            }
+        }
+
+        &-footer {
+            @extend %d-flex,
+            %align-i-center,
+            %justify-between;
+            gap: 20px;
+
+            // Centralizar quando só tem action (sem price)
+            &:has(.product__item-action:only-child) {
+                justify-content: center;
+            }
+        }
+
+        &-price {
+            @extend %d-flex,
+            %align-i-center;
+
+            h4 {
+                @extend %mb-0;
+            }
+
+        }
+
+        &-action {
+            @extend %d-grid;
+            justify-items: center; // Centralizar o conteúdo dentro do grid
+        }
+
+        &--style1 {
+            .product__item {
+                &-inner {
+                    border-radius: 16px;
+                    border: 1px solid transparent;
+
+                    &:hover {
+                        border: 1px solid $border-color;
+                    }
+                }
+
+
+
+                &-thumb {
+                    border-bottom: 1px solid $border-color-2;
+                }
+
+                &-content {
+                    padding: 24px;
+                }
+
+                &-rating {
+                    margin-block: 8px 16px;
+                }
+
+                &-badge {
+                    top: 24px;
+                    left: 24px;
+                }
+            }
+        }
+
+        &--style11 {
+            .product__item {
+                &-inner {
+                    border-radius: 16px;
+                    border: 1px solid transparent;
+                    padding-block: 2rem;
+
+                    &:hover {
+                        border: 1px solid $border-color;
+                    }
+
+                    @include breakpoint(sm) {
+                        display: flex;
+                        flex-wrap: nowrap;
+                    }
+                }
+
+
+
+                &-thumb {
+                    border-right: 1px solid $border-color-2;
+                }
+
+                &-content {
+                    padding-inline: 24px;
+                }
+
+                &-footer {
+                    @extend %d-grid;
+                    gap: 1rem;
+                }
+
+                &-rating {
+                    margin-block: 8px;
+                }
+
+                &-badge {
+                    top: 16px;
+                    left: 16px;
+                }
+            }
+        }
+
+
+        &--style2 {
+            .product__item {
+                &-inner {
+                    border: 1px solid $border-color-thin !important;
+                    border-radius: 12px !important;
+
+                    &:hover {
+                        border: 1px solid $secondary-color !important;
+                    }
+                }
+
+                &-rating {
+                    margin-block: 4px 8px;
+                    font-size: $fs-small;
+                }
+
+                &-title {
+                    margin-bottom: 0;
+                }
+
+                &-footer {
+                    display: grid !important;
+                    gap: 10px; // Espaçamento entre preço e botão
+                    justify-items: center; // Centralizar itens horizontalmente
+                    text-align: center; // Centralizar texto
+                }
+
+                &-action {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%; // Garantir largura total
+
+                    .trk-btn {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        text-align: center !important;
+                        display: flex !important;
+                        justify-content: center !important;
+                        align-items: center !important;
+                    }
+                }
+
+                &-thumb {
+                    img {
+                        transition: $transition;
+                    }
+                }
+
+                &-content {
+                    padding-inline: 16px;
+                    padding-block: 16px;
+
+                    h5 {
+                        font-size: $fs-base;
+                        font-weight: 500;
+
+                        @include breakpoint(md) {
+                            font-size: $fs-h5;
+                        }
+                    }
+                }
+            }
+        }
+
+        &--style3 {
+            .product__item {
+                &-inner {
+                    @extend %d-flex,
+                    %place-i-center;
+                    border-radius: 12px;
+                    border: 1px solid $border-color-thin !important;
+padding: .5rem;
+                    &:hover {
+                        border: 1px solid $secondary-color !important;
+                    }
+                }
+
+                &-badge {
+                    top: 8px;
+                    left: 8px;
+                }
+
+                &-rating {
+                    margin-block: 4px 8px;
+                    font-size: $fs-small;
+                }
+
+                &-thumb {
+                    @extend %p-rel;
+
+                    &::after {
+                        content: "";
+                        @extend %p-abs;
+                        background-color: $border-color-2;
+                        width: 1px;
+                        height: 70%;
+                        top: 15%;
+                        right: 0;
+                    }
+                }
+
+                &-content {
+                    padding: 0;
+                    margin-left: 16px;
+
+                    h5 {
+                        font-weight: 500;
+                        margin-bottom: 0;
+                    }
+                }
+
+                &-price {
+                    h4 {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+
+        .trk-btn {
+            transition: $transition;
+        }
+
+        &.active,
+        &:hover {
+            .product__item {
+                &-thumb {
+                    img {
+                        @include add-prefix(transform, scale(1.05));
+                    }
+                }
+            }
+
+            .trk-btn {
+                background-color: $secondary-color !important; // Verde claro Keepit
+                color: $title-color !important; // Cinza escuro Keepit
+            }
+        }
+    }
+
+}
+
+
+.popular-product {
+    padding-top: 3rem; // Adiciona espaçamento entre navbar e produtos
+
+    @include breakpoint(md) {
+        padding-top: 4rem; // Mais espaço em telas maiores
+    }
+
+    &__header {
+        // Apply flex-wrap in all screen sizes to prevent overlap
+        flex-wrap: wrap;
+
+        @include breakpoint(sm) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            gap: 10px;
+        }
+    }
+
+    &__title {
+        // Force title to take full width on mobile to prevent overlap
+        @include breakpoint(max-sm) {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+
+    &__filters {
+        @extend %mb-20;
+
+        // Force filters to take full width on mobile
+        @include breakpoint(max-sm) {
+            width: 100%;
+            order: 3;
+        }
+
+        @include breakpoint(lg) {
+            margin-bottom: 5px;
+        }
+
+        .nav-pills {
+            @extend %d-flex;
+            gap: 10px;
+
+            @include breakpoint(sm) {
+                gap: 1rem;
+            }
+
+            @include breakpoint(lg) {
+                margin-left: 0%;
+            }
+
+            @include breakpoint(xl) {
+                gap: 2rem;
+                margin-left: 0%; // Removed negative margin to prevent overlap
+            }
+
+            .nav-link {
+                color: $text-color;
+                font-weight: 500;
+                border: 1px solid $border-color-thin;
+                transition: $transition;
+                border-radius: 4px;
+
+                @include breakpoint(lg) {
+                    border: none;
+                    border-radius: 0;
+                    border-bottom: 2px solid transparent;
+                }
+
+                &:hover {
+                    color: $secondary-color;
+                    border-color: $secondary-color;
+                    background-color: transparent;
+                }
+
+                &.active {
+                    color: $text-color; // Mantém a mesma cor dos outros
+                    border-color: $border-color-thin;
+                    background-color: transparent;
+
+                    @include breakpoint(lg) {
+                        border-bottom: 2px solid $text-color; // Traço embaixo no desktop
+                    }
+                }
+            }
+        }
+
+    }
+
+    .product-btn {
+        // Force button to take proper space on mobile
+        @include breakpoint(max-sm) {
+            width: auto;
+            order: 2;
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.product-listing {
+    @extend %of-hidden;
+}
+.product-listing-image{
+    width: 116px;
+    height: 118px;
+}

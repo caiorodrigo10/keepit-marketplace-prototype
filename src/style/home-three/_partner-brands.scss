@@ -1,0 +1,209 @@
+// PartnerBrands Section
+.partner-brands {
+  background-color: #FFFFFF;
+  padding-block: 5rem;
+
+  @media (max-width: 768px) {
+    padding-block: 3rem;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1E1E1E;
+    margin-bottom: 1rem;
+    font-family: $title-font;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: #4A4A4A;
+    font-family: 'Montserrat', sans-serif;
+
+    @media (max-width: 768px) {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  &__cta {
+    text-align: center;
+  }
+
+  &__btn {
+    background: transparent;
+    color: #67FB94;
+    border: 2px solid #67FB94;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: #67FB94;
+      color: #1E1E1E;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(103, 251, 148, 0.3);
+
+      svg {
+        transform: translateX(4px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.875rem;
+      padding: 10px 24px;
+    }
+  }
+}
+
+// BrandCard Component
+.brand-card {
+  background: #F8F9FA;
+  border: 1px solid #E0E0E0;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(103, 251, 148, 0.05) 0%, rgba(52, 191, 88, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    border-color: #67FB94;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .brand-card__name {
+      color: #34BF58;
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+  }
+
+  &__content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  &__logo {
+    max-width: 120px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      max-width: 100px;
+      max-height: 50px;
+    }
+  }
+
+  &:hover &__logo {
+    transform: scale(1.05);
+  }
+
+  &__name {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1E1E1E;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+  }
+
+  &__category {
+    display: block;
+    font-size: 0.75rem;
+    color: #9E9E9E;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    @media (max-width: 768px) {
+      font-size: 0.7rem;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+// Header Inicio - Header with search bar for /inicio page
+
+.header-inicio {
+  // Override background color for /inicio page - mesma cor da index
+  background: #1E1E1E !important; // Preto Keepit (igual à index)
+
+  // Override icons and text colors
+  .header__action-btn {
+    display: flex !important; // Forçar exibição dos ícones em /inicio
+    background-color: rgba(255, 255, 255, 0.1) !important; // Fundo semi-transparente igual à index
+    width: 38px !important;
+    height: 38px !important;
+
+    i, svg {
+      color: #FFFFFF !important; // Ícones brancos (igual à index)
+      font-size: 1rem !important; // Reduzido de 1.25rem
+    }
+  }
+
+  .menu-mobile-trigger {
+    color: #FFFFFF !important; // Ícone branco no mobile (igual à index)
+
+    span {
+      background: #FFFFFF !important; // Barrinhas brancas (igual à index)
+    }
+  }
+
+  .header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .header__search {
+    flex: 1;
+    max-width: 600px;
+
+    @media (max-width: 1199px) {
+      display: none; // Hide on tablet and mobile
+    }
+  }
+
+  .header__search-form {
+    width: 100%;
+  }
+
+  .header__search-input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .header__search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 1.25rem;
+    pointer-events: none;
+  }
+
+  .header__search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff; // Fundo branco para contraste no header preto
+
+    &:focus {
+      outline: none;
+      border-color: #67FB94;
+      background-color: #fff;
+      box-shadow: 0 0 0 3px rgba(103, 251, 148, 0.1);
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  // Mobile search trigger
+  .menu-mobile-trigger {
+    @media (min-width: 1200px) {
+      display: none !important;
+    }
+
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: #fff;
+    cursor: pointer;
+
+    svg {
+      display: block;
+    }
+  }
+
+  // Mobile search modal (for future implementation)
+  @media (max-width: 1199px) {
+    .header__search-mobile {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 999;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      .header__search-input-wrapper {
+        .header__search-icon {
+          color: #333;
+        }
+      }
+    }
+  }
+}

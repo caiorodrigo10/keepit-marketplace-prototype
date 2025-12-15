@@ -1,0 +1,353 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* ============================================
+   Keepit Design System - CSS Variables
+   ============================================ */
+
+:root {
+  /* === Cores Primárias === */
+  --keepit-green-primary: #34BF58;
+  --keepit-green-light: #67FB94;
+
+  /* === Fundos === */
+  --keepit-black: #1E1E1E;
+  --keepit-green-bg: #34BF58;
+  --keepit-gray-light: #F1F1F1;
+  --keepit-white: #FFFFFF;
+
+  /* === Neutros UI === */
+  --keepit-gray-900: #1E1E1E;
+  --keepit-gray-700: #4A4A4A;
+  --keepit-gray-500: #9E9E9E;
+  --keepit-gray-300: #E0E0E0;
+  --keepit-gray-100: #F1F1F1;
+
+  /* === Feedback === */
+  --success-green: #10B981;
+  --success-light: #D1FAE5;
+  --warning-yellow: #F59E0B;
+  --warning-light: #FEF3C7;
+  --error-red: #EF4444;
+  --error-light: #FEE2E2;
+  --info-blue: #3B82F6;
+  --info-light: #DBEAFE;
+
+  /* === Tipografia === */
+  --font-primary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-headings: 'Titillium Web', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Roboto Mono', 'Courier New', monospace;
+
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* === Escala Tipográfica === */
+  --text-6xl: 3.75rem;
+  --text-5xl: 3rem;
+  --text-4xl: 2.25rem;
+  --text-3xl: 1.875rem;
+  --text-2xl: 1.5rem;
+  --text-xl: 1.25rem;
+  --text-lg: 1.125rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  --text-2xs: 0.625rem;
+
+  /* === Espaçamento === */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* === Border Radius === */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* === Shadows === */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* === Line Heights === */
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* === Gradiente Overlay === */
+  --gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-6;
+  }
+
+  .contrast-btn {
+    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  }
+
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-semibold;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-semibold;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-xl-regular {
+    @apply text-2xl leading-[36px] font-normal;
+  }
+
+  .text-xl-semi {
+    @apply text-2xl leading-[36px] font-semibold;
+  }
+
+  .text-2xl-regular {
+    @apply text-[30px] leading-[48px] font-normal;
+  }
+
+  .text-2xl-semi {
+    @apply text-[30px] leading-[48px] font-semibold;
+  }
+
+/* ============================================
+   Keepit Footer Customization
+   ============================================ */
+
+footer {
+  background-color: #F8F9FA !important;
+}
+
+footer .content-container {
+  padding-top: 2rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+footer .py-40 {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+/* Logo menor */
+footer .txt-compact-xlarge-plus {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  color: var(--keepit-black) !important;
+}
+
+/* Títulos das seções menores e escuros */
+footer .txt-small-plus {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: var(--keepit-gray-900) !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Links menores e escuros */
+footer .txt-small,
+footer .text-ui-fg-subtle {
+  font-size: 0.6875rem !important;
+  color: var(--keepit-gray-700) !important;
+}
+
+/* Aumentar espaçamento entre colunas */
+footer .gap-10 {
+  gap: 3rem !important;
+}
+
+footer .md\:gap-x-16 {
+  gap: 4rem !important;
+}
+
+/* Reduzir gaps verticais */
+footer .gap-y-6 {
+  gap: 1.25rem !important;
+}
+
+footer .gap-y-2 {
+  gap: 0.5rem !important;
+}
+
+footer .gap-2 {
+  gap: 0.35rem !important;
+}
+
+/* Copyright e bottom */
+footer .mb-16 {
+  margin-bottom: 0.75rem !important;
+}
+
+footer .txt-compact-small {
+  font-size: 0.6875rem !important;
+  color: var(--keepit-gray-500) !important;
+}
+
+/* Hover states */
+footer a:hover {
+  color: var(--keepit-green-primary) !important;
+}
+
+/* Grid spacing */
+footer .grid-cols-2 {
+  column-gap: 3rem !important;
+}
+
+footer .sm\:grid-cols-3 {
+  column-gap: 3.5rem !important;
+}
+
+/* Links escuros por padrão */
+footer .text-ui-fg-subtle {
+  color: var(--keepit-gray-700) !important;
+}
+
+footer .txt-ui-fg-base {
+  color: var(--keepit-gray-900) !important;
+}
+
+footer .text-ui-fg-muted {
+  color: var(--keepit-gray-500) !important;
+}
+
+/* Fechar @layer components */
+}
+
+/* Footer bottom bar escura */
+footer .border-t {
+  border-top: 1px solid var(--keepit-gray-300) !important;
+}
+
+footer .w-full.mb-16 {
+  background-color: var(--keepit-gray-900) !important;
+  padding: 1rem 0 !important;
+  margin: 0 !important;
+  margin-top: 2rem !important;
+}
+
+footer .w-full.mb-16 .txt-compact-small,
+footer .w-full.mb-16 * {
+  color: var(--keepit-white) !important;
+}
+
+/* Títulos das seções (Suporte, Conta, Links Rápidos, Empresa) em cor escura */
+footer span.txt-ui-fg-base,
+footer span[class*="txt-small-plus"] {
+  color: var(--keepit-gray-900) !important;
+}
+
+/* ============================================
+   Keepit Design System - Headings Typography
+   ============================================ */
+
+h1, h2 {
+  font-family: var(--font-headings);
+  font-weight: var(--font-bold); /* 700 */
+  letter-spacing: -0.02em; /* Slight tracking adjustment for Titillium Web */
+}
+
+h1 {
+  font-size: var(--text-5xl); /* 3rem / 48px */
+  line-height: var(--leading-tight); /* 1.2 */
+}
+
+h2 {
+  font-size: var(--text-3xl); /* 1.875rem / 30px */
+  line-height: var(--leading-tight); /* 1.2 */
+}
+
+/* Responsive heading sizes */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--text-4xl); /* 2.25rem / 36px on mobile */
+  }
+
+  h2 {
+    font-size: var(--text-2xl); /* 1.5rem / 24px on mobile */
+  }
+}
