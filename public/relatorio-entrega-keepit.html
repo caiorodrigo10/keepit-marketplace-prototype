@@ -623,8 +623,8 @@
                     <div class="label">Componentes Reutilizáveis</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">150+</div>
-                    <div class="label">Tabelas no Banco de Dados</div>
+                    <div class="number">15+</div>
+                    <div class="label">Páginas Completas</div>
                 </div>
                 <div class="stat-card">
                     <div class="number">11</div>
@@ -639,7 +639,7 @@
 
             <div class="tech-grid">
                 <div class="tech-card">
-                    <h4>🖥️ Frontend</h4>
+                    <h4>🖥️ Frontend Framework</h4>
                     <ul>
                         <li><strong>Next.js 14</strong> - App Router</li>
                         <li><strong>React 18</strong> - Biblioteca UI</li>
@@ -650,32 +650,34 @@
                     </ul>
                 </div>
                 <div class="tech-card">
-                    <h4>⚙️ Backend</h4>
-                    <ul>
-                        <li><strong>Medusa.js 2.0</strong> - E-commerce Headless</li>
-                        <li><strong>Node.js</strong> - Runtime</li>
-                        <li><strong>PostgreSQL</strong> - Banco de Dados</li>
-                        <li><strong>Supabase</strong> - Database Cloud</li>
-                        <li><strong>REST API</strong> - Comunicação</li>
-                    </ul>
-                </div>
-                <div class="tech-card">
                     <h4>🎨 Design System</h4>
                     <ul>
                         <li><strong>Montserrat</strong> - Tipografia</li>
-                        <li><strong>#34BF58</strong> - Cor Primária</li>
-                        <li><strong>shadcn/ui</strong> - Componentes</li>
+                        <li><strong>#34BF58</strong> - Cor Primária (Keepit Green)</li>
+                        <li><strong>shadcn/ui</strong> - Componentes Base</li>
                         <li><strong>Mobile-first</strong> - Responsividade</li>
                         <li><strong>PWA Ready</strong> - Progressive Web App</li>
+                        <li><strong>Animações CSS</strong> - Transições suaves</li>
                     </ul>
                 </div>
                 <div class="tech-card">
-                    <h4>🗺️ Integrações</h4>
+                    <h4>🗺️ Integrações de API</h4>
                     <ul>
-                        <li><strong>Google Maps API</strong> - Localização</li>
-                        <li><strong>Geocoding</strong> - Endereços</li>
-                        <li><strong>Places API</strong> - Autocomplete</li>
-                        <li><strong>Stripe</strong> - Pagamentos (preparado)</li>
+                        <li><strong>Google Maps API</strong> - Visualização de mapas</li>
+                        <li><strong>Geocoding API</strong> - Conversão de endereços</li>
+                        <li><strong>Places API</strong> - Autocomplete de lugares</li>
+                        <li><strong>Markers customizados</strong> - Pins dos lockers</li>
+                        <li><strong>InfoWindow</strong> - Detalhes interativos</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>📦 State Management</h4>
+                    <ul>
+                        <li><strong>React Context API</strong> - Estado global</li>
+                        <li><strong>Cart Context</strong> - Carrinho de compras</li>
+                        <li><strong>Location Context</strong> - Geolocalização</li>
+                        <li><strong>React Hooks</strong> - useState, useEffect</li>
+                        <li><strong>Local Storage</strong> - Persistência</li>
                     </ul>
                 </div>
             </div>
@@ -918,127 +920,9 @@
             </div>
         </section>
 
-        <!-- Seção: Medusa Admin -->
-        <section class="section">
-            <h2 class="section-title">6. Painel Administrativo (Medusa Admin)</h2>
-
-            <p>O backend utiliza Medusa.js 2.0 com um dashboard administrativo completo para gestão do marketplace.</p>
-
-            <div class="info-box">
-                <strong>Credenciais de Acesso:</strong><br>
-                URL: <code>http://localhost:9000/app</code><br>
-                Email: <code>admin@keepit.com</code><br>
-                Senha: <code>KeepitAdmin2025!</code>
-            </div>
-
-            <div class="gallery-section">
-                <h3 class="gallery-title">🔐 Login e Dashboard</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-01-login-page.png" alt="Medusa - Login">
-                        <div class="caption">
-                            Página de Login
-                            <small>Autenticação segura do admin</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-02-orders.png" alt="Medusa - Orders">
-                        <div class="caption">
-                            Gestão de Pedidos
-                            <small>Listagem e status de orders</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-section">
-                <h3 class="gallery-title">📦 Produtos e Inventário</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-03-products.png" alt="Medusa - Products">
-                        <div class="caption">
-                            Lista de Produtos
-                            <small>4 produtos cadastrados de exemplo</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-04-product-detail.png" alt="Medusa - Product Detail">
-                        <div class="caption">
-                            Detalhes do Produto
-                            <small>Variantes, opções, mídia, preços</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-05-inventory.png" alt="Medusa - Inventory">
-                        <div class="caption">
-                            Gestão de Inventário
-                            <small>20 itens com controle de estoque</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-section">
-                <h3 class="gallery-title">👥 Clientes e Marketing</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-06-customers.png" alt="Medusa - Customers">
-                        <div class="caption">
-                            Gestão de Clientes
-                            <small>CRM integrado ao marketplace</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-07-promotions.png" alt="Medusa - Promotions">
-                        <div class="caption">
-                            Promoções
-                            <small>Cupons e descontos</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-08-price-lists.png" alt="Medusa - Price Lists">
-                        <div class="caption">
-                            Listas de Preços
-                            <small>Precificação por região/cliente</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-section">
-                <h3 class="gallery-title">⚙️ Configurações</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-09-settings-store.png" alt="Medusa - Settings">
-                        <div class="caption">
-                            Configurações da Loja
-                            <small>Nome, moedas, canais de venda</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="screenshots-medusa/medusa-10-settings-regions.png" alt="Medusa - Regions">
-                        <div class="caption">
-                            Regiões
-                            <small>Europa e Brasil configurados</small>
-                            <span class="click-hint">Clique para ampliar</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Seção: Funcionalidades Implementadas -->
         <section class="section">
-            <h2 class="section-title">7. Funcionalidades Implementadas</h2>
+            <h2 class="section-title">6. Funcionalidades Implementadas</h2>
 
             <div class="tech-grid">
                 <div class="tech-card">
@@ -1090,7 +974,7 @@
 
         <!-- Seção: Módulos Desenvolvidos -->
         <section class="section">
-            <h2 class="section-title">8. Módulos Desenvolvidos</h2>
+            <h2 class="section-title">7. Módulos Desenvolvidos</h2>
 
             <p>O frontend foi organizado em 21 módulos principais seguindo arquitetura modular:</p>
 
@@ -1154,7 +1038,7 @@
 
         <!-- Seção: Próximos Passos -->
         <section class="section">
-            <h2 class="section-title">9. Próximos Passos</h2>
+            <h2 class="section-title">8. Próximos Passos</h2>
 
             <div class="timeline">
                 <div class="timeline-item">
@@ -1182,7 +1066,7 @@
 
         <!-- Seção: Conclusão -->
         <section class="section">
-            <h2 class="section-title">10. Conclusão</h2>
+            <h2 class="section-title">9. Conclusão</h2>
 
             <div class="info-box highlight">
                 <p><strong>Entrega realizada com sucesso!</strong></p>
@@ -1192,12 +1076,13 @@
             <h3 class="section-subtitle">Resumo das Entregas</h3>
             <ul class="feature-list">
                 <li><strong>Frontend completo</strong> com 33.001 linhas de código TypeScript</li>
-                <li><strong>Backend Medusa.js 2.0</strong> configurado e operacional</li>
-                <li><strong>Banco de dados Supabase</strong> com 150+ tabelas migradas</li>
+                <li><strong>21 módulos organizados</strong> seguindo arquitetura modular</li>
+                <li><strong>50+ componentes reutilizáveis</strong> para escalabilidade</li>
                 <li><strong>Design System</strong> documentado e implementado</li>
                 <li><strong>Integração Google Maps</strong> para localização de lockers</li>
                 <li><strong>Fluxo de checkout</strong> completo em 3 etapas</li>
                 <li><strong>Formulário de parceiros</strong> com validação completa</li>
+                <li><strong>15+ páginas completas</strong> responsivas e interativas</li>
                 <li><strong>11 documentos técnicos</strong> de suporte ao desenvolvimento</li>
             </ul>
 
@@ -1208,14 +1093,17 @@
                     <ul>
                         <li><strong>URL:</strong> http://localhost:8000</li>
                         <li><strong>Comando:</strong> cd storefront && npm run dev</li>
+                        <li><strong>Build:</strong> npm run build</li>
+                        <li><strong>Produção:</strong> npm start</li>
                     </ul>
                 </div>
                 <div class="tech-card">
-                    <h4>⚙️ Backend (Medusa Admin)</h4>
+                    <h4>📋 Estrutura de Arquivos</h4>
                     <ul>
-                        <li><strong>URL:</strong> http://localhost:9000/app</li>
-                        <li><strong>Comando:</strong> cd medusa-backend && npm run dev</li>
-                        <li><strong>Login:</strong> admin@keepit.com</li>
+                        <li><strong>app/</strong> - App Router do Next.js</li>
+                        <li><strong>components/</strong> - Componentes React</li>
+                        <li><strong>modules/</strong> - 21 módulos principais</li>
+                        <li><strong>styles/</strong> - 72 arquivos SCSS</li>
                     </ul>
                 </div>
             </div>
